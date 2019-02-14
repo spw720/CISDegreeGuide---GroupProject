@@ -1,19 +1,20 @@
 #ifndef __COURSE_HPP
 #define __COURSE_HPP
 
-class Courses {
+class Course {
 public: 
 	Course();
 	~Course();
 
 private:
-	string name;			// Course Title
-	string subject;		 	// Prefix, i.e. CIS
-	int number;				// Number, i.e. 330
-	int crn;            	// Unique Course Code
+	char name[20];			// Course Title
+	char subject[4];		// Prefix, i.e. CIS
+	int number;			// Number, i.e. 330
+	int crn;            		// Unique Course Code
 	int credits;			// Usually 4
 	
-	string termsOffered[];	// F, S, W, Summer 
-	string prerequisites[];	// Usually just 1, i.e. 211.prerequisite=210
+	char termsOffered[4][2];	// F, S, W
+	char prerequisites[4][20];	// i.e. 211.prerequisites=210
+};
 
 #endif
