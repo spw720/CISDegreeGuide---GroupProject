@@ -1,10 +1,10 @@
-#ifndef __COURSES_HPP
-#define __COURSES_HPP
+#ifndef __COURSE_HPP
+#define __COURSE_HPP
 
 class Courses {
 public: 
-	Courses();
-	~Courses();
+	Course();
+	~Course();
 
 private:
 	string subject;
