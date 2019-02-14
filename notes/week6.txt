@@ -1,0 +1,12 @@
+WEEK 6
+
+This week we met to plan out our strategy for starting this project. We did research as a group into the logistics of using a database
+and found that using SQLite for a simple database of courses and course data may be the best approach. We also drew out a diagram of the basic 
+features of the application that will need to be implemented once our database is up and running. This included creating a list of courses that
+could-be taken in general, a list of courses that could be taken the following term, and a list of possible tracks that lead to graduation.
+We also planned out how data should be organized as to be most efficiently accessed.
+[Subject(CIS), Course#(212), CRN, Terms offered, Prerequisites, Coursename]
+
+Our next step as of now is to create our database of classes organized in the way we discussed, and familiarize ourselves with accessing that data.
+Once we have this step up and running, we will be able to start working with that database and user inputed data to create the functionality of our project.
+
