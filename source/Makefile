@@ -6,7 +6,7 @@ all: lifeguide.exe test.exe
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $<
 
-lifeguide.exe: main.o
+lifeguide.exe: course.o courseList.o main.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 test.exe: test.o
