@@ -1,0 +1,15 @@
+
+
+This week we decided to ditch the idea of the database. Instead we have made a class for course which has members with the class details. There is now a boolean value within each class "hasTaken" which keeps track of which classes the user has taken what they still need to take. 
+
+This weeks goals: hardcode in all the class information, research GUI's, continue writing program logic 
+
+Task Division:
+
+Sean: GUI Guy
+Claire: HardCode in all the classes
+Noah: interface for the courses
+Joe: research I/O
+
+
+
