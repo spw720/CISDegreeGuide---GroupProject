@@ -6,13 +6,6 @@ using namespace std;
 
 class Course {
 public: 
-	/*
-	Course() {
-		this->name = "name";
-		this->subject = "CIS";
-		this->number = 210;
-	}*/
-
 
 	//Constructor
 	Course(string name, string subject, int number, char division, bool offeredFall, bool offeredWinter, bool offeredSpring, string prereq1, string prereq2, bool hasTaken);
