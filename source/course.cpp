@@ -26,6 +26,6 @@ char Course::getDivision() {return this->division;}
 bool Course::getOfferedFall() {return this->offeredFall;}
 bool Course::getOfferedWinter() {return this->offeredWinter;}
 bool Course::getOfferedSpring() {return this->offeredSpring;}
-string Course::getPrereq1() {return this->prereq1;}      
-string Course::getPrereq2() {return this->prereq2;}
+Course Course::getPrereq1() {return (this->prereq1)->getName();}	// I made this function return Course instead of String because it will be easier to determine if a student has taken it from their "has Taken" list as opposed to looking @ a string      
+Course Course::getPrereq2() {return (this->prereq2)->getName();}
 bool Course::getHasTaken() {return this->hasTaken;}

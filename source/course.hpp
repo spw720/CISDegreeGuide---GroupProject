@@ -20,8 +20,8 @@ public:
 	bool getOfferedFall();
         bool getOfferedWinter();
         bool getOfferedSpring();
-        string getPrereq1();       
-        string getPrereq2();
+        Course getPrereq1();       
+        Course getPrereq2();
         bool getHasTaken();
 
 private:
@@ -32,8 +32,8 @@ private:
 	bool offeredFall;
 	bool offeredWinter;
 	bool offeredSpring;
-	string prereq1;		// i.e. 211.prereq1=210
-	string prereq2;
+	Course prereq1;		// i.e. 211.prereq1=210
+	Course prereq2;
 	bool hasTaken;
 };
 
