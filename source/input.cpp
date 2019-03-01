@@ -121,4 +121,20 @@ Input::getClassTaken(int argc, const char *argv[]) {
   if (inputStream == 'y') {cis407 = 1;}
   else {cis407 == 0;}
   inputStream = null;
+
+  while (inputStream != 'y' && inputStream != 'n') { //415?
+    std::cout << "Have you taken CIS 415? (y/n)" << std::endl
+    inputStream = & std::cin;
+  }
+  if (inputStream == 'y') {cis415 = 1;}
+  else {cis415 == 0;}
+  inputStream = null;
+
+  while (inputStream != 'y' && inputStream != 'n') { //425?
+    std::cout << "Have you taken CIS 425? (y/n)" << std::endl
+    inputStream = & std::cin;
+  }
+  if (inputStream == 'y') {cis425 = 1;}
+  else {cis425 == 0;}
+  inputStream = null;
 }
