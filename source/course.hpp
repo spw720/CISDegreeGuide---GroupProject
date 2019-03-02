@@ -8,7 +8,7 @@ class Course {
 public: 
 
 	//Constructor
-	Course(string name, string subject, int number, char division, bool offeredFall, bool offeredWinter, bool offeredSpring, string prereq1, string prereq2, bool hasTaken);
+	Course(string name, string subject, int number, char division, bool offeredFall, bool offeredWinter, bool offeredSpring, Course* prereq1, Course* prereq2, bool hasTaken);
 	//Destructor
 	~Course();
 
@@ -20,8 +20,8 @@ public:
 	bool getOfferedFall();
         bool getOfferedWinter();
         bool getOfferedSpring();
-        Course getPrereq1();       
-        Course getPrereq2();
+        Course* getPrereq1();       
+        Course* getPrereq2();
         bool getHasTaken();
 
 private:
@@ -32,8 +32,8 @@ private:
 	bool offeredFall;
 	bool offeredWinter;
 	bool offeredSpring;
-	Course prereq1;		// i.e. 211.prereq1=210
-	Course prereq2;
+	Course* prereq1 = nullptr;		// i.e. 211.prereq1=210
+	Course* prereq2 = nullptr;
 	bool hasTaken;
 };
 
