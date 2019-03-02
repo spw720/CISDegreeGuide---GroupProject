@@ -1,0 +1,18 @@
+WEEK 8 PROGRESS UPDATE: 
+
+Accomplished this week: 
+- Claire: hardcoded in the classes into courseList.cpp
+- Sean: began work on QT GUI
+- Noah: hard coded in vectors of different courses 
+- Joe: Researched i/o
+
+Goals: 
+-Sean: finish learning about GUI and start implementing functions / connecting to our logic 
+- Everyone else: backend logic work
+	- Claire : Math Requirement logic 
+	- Joe : CIS course logic 
+	- Naoh : course interface and vector logic 
+
+
+
+
