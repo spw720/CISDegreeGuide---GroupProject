@@ -3,7 +3,7 @@
 using namespace std;
 
 //Constructor
-Course::Course(string name, string subject, int number, char division, bool offeredFall, bool offeredWinter, bool offeredSpring, string prereq1, string prereq2, bool hasTaken) {
+Course::Course(string name, string subject, int number, char division, bool offeredFall, bool offeredWinter, bool offeredSpring, Course* prereq1, Course* prereq2, bool hasTaken) {
 	this->name = name;
 	this->subject = subject;
 	this->number = number;
@@ -26,6 +26,6 @@ char Course::getDivision() {return this->division;}
 bool Course::getOfferedFall() {return this->offeredFall;}
 bool Course::getOfferedWinter() {return this->offeredWinter;}
 bool Course::getOfferedSpring() {return this->offeredSpring;}
-Course Course::getPrereq1() {return (this->prereq1)->getName();}	// I made this function return Course instead of String because it will be easier to determine if a student has taken it from their "has Taken" list as opposed to looking @ a string      
-Course Course::getPrereq2() {return (this->prereq2)->getName();}
+Course* Course::getPrereq1() {return this->prereq1;}	// I made this function return Course instead of String because it will be easier to determine if a student has taken it from their "has Taken" list as opposed to looking @ a string      
+Course* Course::getPrereq2() {return this->prereq2;}
 bool Course::getHasTaken() {return this->hasTaken;}
