@@ -10,7 +10,7 @@ public:
 		cout << CIS210->getNumber();
 	}
 
-	std::vector<Course> getCourseList() {return courseList;}
+	std::vector<Course> getAll() {return all;}
 
 
 public:
@@ -47,17 +47,62 @@ public:
 	Course *CIS461;
 	Course *CIS471;
 	Course *CIS472;
+	Course *CIS322;
+	Course *CIS399;
 
 	Course *WR320;
 	Course *WR321;
 	
+	Course *M251;
+	Course *M252;
+	Course *M261;
+	Course *M262;
+	Course *M246;
+	Course *M247;
 	
+	Course *M341;
+	Course *M253;
+	Course *M263;
+	Course *M347;
+	Course *M351;
+	Course *M391;
+	Course *M343;	
 
 
 
 
 
-	//Course Lists:
+	//Courses:
 	//TODO
-	std::vector<Course> courseList;
+	std::vector<Course> all;
+	std::vector<Course> coreLower;
+	std::vector<Course> coreUpper;
+	std::vector<Course> taken;
+	std::vector<Course> toTake;
+
+	std::vector<Course> mathUpper;
+
+	//Computational Science Track
+	std::vector<Course> compSciReq;
+	std::vector<Course> compSciOpt;
+
+	//Computer Networks Track
+	std::vector<Course> compNetworkReq;
+	std::vector<Course> compNetworkOpt;
+
+	//Computer Security Track
+	std::vector<Course> compSecurityReq;
+	std::vector<Course> compSecurityOpt;
+
+	//Database and Informatics Track
+	std::vector<Course> dbInfoReq;
+	std::vector<Course> dbInfoOpt;
+
+	//Foundations Track
+	std::vector<Course> foundationReq;
+	std::vector<Course> foundationOpt;
+
+	//Software Dev Track
+	std::vector<Course> softwareDevReq;
+	std::vector<Course> softwareDevOpt;
 };
