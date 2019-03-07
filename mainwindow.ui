@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="5" column="1" colspan="2">
-     <widget class="QComboBox" name="comboBox_3">
+     <widget class="QComboBox" name="TRACK">
       <item>
        <property name="text">
         <string>Computational Science</string>
@@ -45,26 +45,21 @@
      </widget>
     </item>
     <item row="7" column="1" rowspan="2" colspan="2">
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="TRACK_PATH">
       <property name="text">
        <string>Show possible path to graduation with selected track</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0" colspan="3">
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QListWidget" name="CLASS_LIST">
       <property name="cursor" stdset="0">
        <cursorShape>ArrowCursor</cursorShape>
       </property>
-      <item>
-       <property name="text">
-        <string>Class List</string>
-       </property>
-      </item>
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="SUBJECT">
       <item>
        <property name="text">
         <string>CIS</string>
@@ -96,7 +91,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="COURSE_NUM">
       <item>
        <property name="text">
         <string>210</string>
@@ -135,14 +130,14 @@
      </widget>
     </item>
     <item row="8" column="0">
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="REMAINING">
       <property name="text">
        <string>See remaining required courses</string>
       </property>
      </widget>
     </item>
     <item row="2" column="2">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="ENTER_CLASS">
       <property name="text">
        <string>Enter Class</string>
       </property>
@@ -172,7 +167,7 @@
      </spacer>
     </item>
     <item row="7" column="0">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="NEXT_TERM">
       <property name="text">
        <string>See courses to take next term</string>
       </property>
@@ -209,14 +204,6 @@
      <height>22</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
