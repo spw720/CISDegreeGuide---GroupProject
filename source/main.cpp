@@ -16,7 +16,7 @@ int main() {
 	//Prints course's subject and number
 	cout << "Capacity: " << courseList->getAll().capacity() << endl;
 	//courseList->getAll().capacity();
-	for(auto it = courseList->getUpperElectives().begin(); it!=courseList->getAll().end(); it++) {
+	for(auto it = courseList->getUpperElectives().begin(); it!=courseList->getUpperElectives().end(); it++) {
 		//cout << "Here " << courseList->getAll().size() << endl;
 		cout << (*it).getSubject() << " " << (*it).getNumber() << endl;
 	}
