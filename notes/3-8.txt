@@ -1,0 +1,18 @@
+TODOS
+
+- Figure out how to incorporate the gui and the other .cpp files we have been using. I think we can put it all in QT, so that the .cpp and .h files all connect within the application folder
+- Where did the logic for the math go? someone deleted it. :( 
+- Where is the logic going? can assign to lineEdits and then compare to vectors
+
+This Weekend: 
+
+Saturday:
+
+
+Sunday: 
+
+
+
+
+
+ 
