@@ -5,18 +5,19 @@
 #include "courseList.hpp"
 
 bool hasLowerDiv(CourseList *CourseList, CourseList *coreLower) { //courses taken, lower division core requirments
-  bool hasLowerDiv = true;
-  auto x = coreLower->getCourseList().begin();
-  for (auto it = CourseList->getCourseList().begin(); it!=CourseList->getCourseList().end(); it++) {
-		//cout << (*it).getSubject() << " " << (*it).getNumber() << endl;
-    if (std::find((*it).begin(), (*it).end(), x) != (*it).end()) {
-      /* v contains x */
+  bool hasLower = true;
+  std::vector<Course> course_check = {};
+  auto x = CourseList->getCourseList().begin();
+  for (auto i = coreLower->getCourseList().begin(); i!=coreLower->getCourseList().end(); i++) {
+    if (std::find((*i).begin(), (*i).end(), x) != (*i).end()) {
+      // vector contains x
+      course_check.push_back(x); //insert element
       x += 1;
     } else {
-      /* v does not contain x */
-      hasLowerDiv = false;
-      break;
+      // vector does not contain x
+      hasLower = false;
+      if (coreLower.size() == course_check.size()) {break;} //need to test
     }
 	}
-  return hasLowerDiv;
+  return hasLower;
 }
