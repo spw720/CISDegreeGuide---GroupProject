@@ -17,7 +17,7 @@ CourseList::CourseList() {
  	* Course prereq2
  	* bool hasTaken);
  	*/
-	
+
 	//TODO hard-code courses
 	//push to courseList
 	//make sure to add in courseList.hpp
@@ -39,7 +39,7 @@ CourseList::CourseList() {
 	CIS422 = new Course("Software Methodology I", "CIS", 422, 'u', true, true, true, CIS313,NoPre, false);
 	CIS425 = new Course("Principles of Programming Languages", "CIS", 425, 'u', true, false, true, CIS315,NoPre, false);
 
-	
+
 	//300 Level Electives
 	CIS322 = new Course("Intro to SOftware Engineering", "CIS", 322, 'l', true, false, true, CIS212, NoPre, false);
 	CIS399 = new Course("Topics in Data Science", "CIS", 399, 'l', false, true, true, CIS212, M232, false);
@@ -58,12 +58,12 @@ CourseList::CourseList() {
 	CIS445 = new Course("Modeling and Simulation", "CIS",445, 'u', false, false, true, CIS315, CIS330, false);
 	CIS451 = new Course("Database Processing", "CIS", 451, 'u', true, false, false, CIS313, CIS314, false);
 	CIS453 = new Course("Data Mining", "CIS", 453, 'u', false, false, true, CIS451,NoPre,false);
-       	CIS461 = new Course("Introduction to Compilers", "CIS", 461, 'u', true, false, false, CIS314, CIS425, false);
+  CIS461 = new Course("Introduction to Compilers", "CIS", 461, 'u', true, false, false, CIS314, CIS425, false);
 	CIS471 = new Course("Introduction to Artificial Intelligence", "CIS", 471, 'u', true, true, false, CIS315,NoPre, false);
 	CIS472 = new Course("Machine Learning", "CIS", 472, 'u', false, true, true, CIS315,NoPre, false);
-	
 
-	// writing requirments 
+
+	// writing requirments
 	WR320 = new Course("Scientific and Technical Writing", "WR", 320, 'u', true, true, true, NoPre, NoPre, false);
 	WR321 = new Course("Business Communications", "WR", 321, 'u', true, true, true, NoPre, NoPre, false);
 	// Calculas Sequences, must choose one two course sequence
@@ -73,23 +73,18 @@ CourseList::CourseList() {
 	M262 = new Course("Calculas with Theory II", "MATH", 262, 'l', true, true, true, M262, NoPre, false);
 	M246 = new Course("Calculus for the Biological Sciences I", "MATH", 246,'l', true, true, true, M112, NoPre, false);
 	M247 = new Course("Calculus for the Biological Sciences II", "MATH", 247, 'l', true, true, true, M246, NoPre, false);
-	
-	
-	// Additional Math: 2 courses out of the following: 
+
+
+	// Additional Math: 2 courses out of the following:
 	M341 = new Course("Elementary Linear Algebra I","MATH", 341, 'u', true, true, false, M252, NoPre, false);
 	M253 = new Course("Calculas III", "MATH", 253,'l', false, true, true, M252, NoPre, false);
-       	M263 = new Course("Calculas with Theory III", "MATH", 263, 'l',false, true, true, M262, NoPre, false);
+  M263 = new Course("Calculas with Theory III", "MATH", 263, 'l',false, true, true, M262, NoPre, false);
 	M347 = new Course("Fundamentals of Number Theory I", "MATH", 347,'u', true, true, false, M253, M263, false);
 	M351 = new Course("Elementary Numerical Analysis I", "MATH", 351,'u', true, true, false, M253, M263, false);
 	M391 = new Course("Fundamentals of Abstract Algebra I", "MATH", 391,'u', true, true, false, M341, M232, false);
 	M343 = new Course("Statistical Models/Methods", "MATH", 343,'u', false, true, true, M252, NoPre, false);
-	
-		
 
 
-
-	
-	
 	//All Courses
 	all.reserve(100);
 	//all.resize(100);
@@ -104,7 +99,7 @@ CourseList::CourseList() {
 	all.push_back(*CIS415);
 	all.push_back(*CIS422);
 	all.push_back(*CIS425);
-	
+
 	all.push_back(*CIS322);
 	all.push_back(*CIS399);
 	all.push_back(*CIS407);
@@ -123,9 +118,9 @@ CourseList::CourseList() {
 	all.push_back(*CIS461);
 	all.push_back(*CIS471);
 	all.push_back(*CIS472);
-	
+
 	all.push_back(*M231);
-        all.push_back(*M232);
+  all.push_back(*M232);
 	all.push_back(*M251);
 	all.push_back(*M252);
 	all.push_back(*M261);
@@ -139,9 +134,9 @@ CourseList::CourseList() {
 	all.push_back(*M351);
 	all.push_back(*M343);
 	all.push_back(*M391);
-	
+
 	all.push_back(*WR320);
-        all.push_back(*WR321);
+  all.push_back(*WR321);
 	//all.capacity();
 	//cout << "Capacity: " << all.capacity() << endl;
 
@@ -183,7 +178,7 @@ CourseList::CourseList() {
 	compSecurityOpt.push_back(*CIS432);
 	compSecurityOpt.push_back(*CIS445);
 	compSecurityOpt.push_back(*CIS472);
-	
+
 	dbInfoReq.push_back(*CIS451);
 	dbInfoOpt.push_back(*CIS453);
 	dbInfoOpt.push_back(*CIS427);
@@ -193,10 +188,6 @@ CourseList::CourseList() {
 	dbInfoOpt.push_back(*CIS471);
 	dbInfoOpt.push_back(*CIS472);
 
-	//foundationReq is empty
-	//TODO: fill foundationOpt w courses above 410
-	
-
 	//Reqd course not offered!
 	//softwareDevReq.push_back(*CIS423);
 	softwareDevOpt.push_back(*CIS413);
@@ -204,5 +195,17 @@ CourseList::CourseList() {
 	softwareDevOpt.push_back(*CIS427);
 	softwareDevOpt.push_back(*CIS461);
 
-}
+	//foundationReq is empty
+	//TODO: fill foundationOpt w courses above 410
+	for(auto it = all.begin(); it!=all.end(); it++) {
+		//cout << "Here " << courseList->getAll().size() << endl;
+	    //cout << (*it).getSubject() << " " << (*it).getNumber() << endl;
+			if((*it).getSubject() == "CIS" && (*it).getNumber() > 410) {
+			    upperElectives.push_back(*it);
+			}
+	}
 
+
+
+
+}

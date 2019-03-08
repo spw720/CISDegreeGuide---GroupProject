@@ -12,6 +12,8 @@ public:
 
 	std::vector<Course> getAll() {return all;}
 
+	std::vector<Course> getUpperElectives() {return upperElectives;}
+
 
 public:
 	//Courses:
@@ -52,21 +54,21 @@ public:
 
 	Course *WR320;
 	Course *WR321;
-	
+
 	Course *M251;
 	Course *M252;
 	Course *M261;
 	Course *M262;
 	Course *M246;
 	Course *M247;
-	
+
 	Course *M341;
 	Course *M253;
 	Course *M263;
 	Course *M347;
 	Course *M351;
 	Course *M391;
-	Course *M343;	
+	Course *M343;
 
 
 
@@ -99,10 +101,12 @@ public:
 	std::vector<Course> dbInfoOpt;
 
 	//Foundations Track
-	std::vector<Course> foundationReq;
-	std::vector<Course> foundationOpt;
+	//std::vector<Course> foundationReq;
+	//std::vector<Course> foundationOpt;
 
 	//Software Dev Track
 	std::vector<Course> softwareDevReq;
 	std::vector<Course> softwareDevOpt;
+
+	std::vector<Course> upperElectives;
 };
