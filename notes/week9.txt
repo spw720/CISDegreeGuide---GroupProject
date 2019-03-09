@@ -1,9 +1,19 @@
 Week 9:
 
-All:	-Chose to implement sqlite database for courses
-Noah: 	-Finished course and course_list interfaces (ended up using db instead)
-	-Drew up data flow diagram
-	-
-Sean:	-
+All:	
+-Chose to implement sqlite database for courses
+Noah: 	
+-Finished course and course_list interfaces (ended up using db instead)
+	
+-Drew up data flow diagram
+	
+-
+Sean:	
+-Researched QT
+-Finsihed work on the gui
+-Triublshooted with git because it was being wierd
+-Started planning how to integrate logic with qt gui design
+
+ 
 Joe:	-
 Claire:	-
