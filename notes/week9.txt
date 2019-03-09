@@ -1,0 +1,9 @@
+Week 9:
+
+All:	-Chose to implement sqlite database for courses
+Noah: 	-Finished course and course_list interfaces (ended up using db instead)
+	-Drew up data flow diagram
+	-
+Sean:	-
+Joe:	-
+Claire:	-
