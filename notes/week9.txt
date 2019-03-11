@@ -15,5 +15,9 @@ Sean:
 -Started planning how to integrate logic with qt gui design
 
  
-Joe:	-
+Joe:	
+-researched sqlite
+-worked on logic
+-converted logic already worked on to work with sqlite
+
 Claire:	-
