@@ -23,5 +23,6 @@ Joe:
 -converted logic already worked on to work with sqlite
 
 Claire:
--created database
--begain implementing database in sqlite
+-created database/added all classes
+-begain implementing database in qt w sean
+
