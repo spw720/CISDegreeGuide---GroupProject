@@ -2,22 +2,26 @@ Week 9:
 
 All:	
 -Chose to implement sqlite database for courses
+-planned logic functions: required, nextTerm, path
+
 Noah: 	
--Finished course and course_list interfaces (ended up using db instead)
-	
+-Finished course and course_list interfaces (ended up using db instead)	
 -Drew up data flow diagram
+-Researched sqlite
+-Wrote required logic function
 	
--
 Sean:	
 -Researched QT
 -Finsihed work on the gui
 -Triublshooted with git because it was being wierd
 -Started planning how to integrate logic with qt gui design
-
+-begain implementing database in sqlite
  
 Joe:	
 -researched sqlite
 -worked on logic
 -converted logic already worked on to work with sqlite
 
-Claire:	-
+Claire:
+-created database
+-begain implementing database in sqlite
