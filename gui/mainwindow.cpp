@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include "database.cpp"
+
 #include <stdio.h>
 
 //QString class_list[48][2] = {{"CIS"," 210"},{"MTH"," 251"}};
@@ -16,11 +19,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    db.connOpen();
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    db.connClosed();
+
 }
 
 void MainWindow::on_ENTER_CLASS_clicked()
@@ -40,9 +49,14 @@ void MainWindow::on_ENTER_CLASS_clicked()
         {
             v2[accum][0] = ui->SUBJECT->currentText();
             v2[accum][1] = ui->COURSE_NUM->currentText();
-            ui->CLASS_LIST->addItem(v2[accum][0] + " " + v2[accum][1] + " (" + ui->GRADE->currentText() + ")");
+            ui->CLASS_LIST->addItem(v2[accum][0] + " " + v2[accum][1] + "  (" + ui->GRADE->currentText() + ")");
             accum += 1;
             num_classes += 1;
+
+
+
+
+
 
             if(ui->GRADE->currentText() == "A+")
                 gpa_total += 4.0;
@@ -84,9 +98,39 @@ void MainWindow::on_NEXT_TERM_clicked()
 
 void MainWindow::on_REMAINING_clicked()
 {
-    ui->COURSE_OUTPUT->clear();
+    QString trackReq = ui->TRACK->currentText();
+
+    QVector<QString> req;
+
+
+    QSqlQuery qry;
+    //qry.prepare("SELECT FROM notTaken WHERE (:trackReq) = 1 OR core = 1");
+    qry.prepare("SELECT core FROM courses WHERE core = 1");
+
+    qry.bindValue(":trackReq", trackReq);
+    if(qry.exec()) {
+        while(qry.next()) {
+            req.push_back(qry.value(1).toString());
+            ui->COURSE_OUTPUT->addItem("WTF");
+        }
+    }
+    else {
+        ui->COURSE_OUTPUT->addItem("NAH");
+    }
+
+    /*
+    for(auto it = req.begin(); it!=req.end(); it++) {
+        //QString str = QString::fromStdString(*it);
+        ui->COURSE_OUTPUT->addItem(*it);
+        ui->COURSE_OUTPUT->addItem("WTF");
+    }*/
+
+
+    /*
+    //ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Remaining Required Courses:");
     ui->COURSE_OUTPUT->addItem("TEMP VALUE");
+    */
 }
 
 void MainWindow::on_TRACK_PATH_clicked()
@@ -306,4 +350,5 @@ void MainWindow::on_DELETE_COURSE_clicked()
         v2[i][1] = "";
     }
 }
+
 
