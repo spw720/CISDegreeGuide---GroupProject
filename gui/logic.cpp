@@ -45,6 +45,33 @@ QVector<QString> required(QString trackReq) {
     }
     return req;
 }
+
+QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
+  QSqlQuery query;
+  QVector<QString> couldTake;
+  if (term == "fall") {
+    query.prepare("SELECT subject, number FROM not_taken WHERE fall = 1");
+  }
+  else if (term == "winter") {
+    query.prepare("SELECT subject, number FROM not_taken WHERE winter = 1");
+  }
+  else if (term == "spring") {
+    query.prepare("SELECT subject, number FROM not_taken WHERE spring = 1");
+  }
+  if (query.exec()) {
+    while (query.next()) {
+      QString s = query.value(0).toString() + " " + query.value(1).toString();
+
+      couldTake.push_back(s);
+    }
+  }
+  else {
+    //ui->COURSE_OUTPUT->addItem("Invalid Read");
+      couldTake.push_back("Invalid Read");
+  }
+  return couldTake;
+}
+
 //QVector<QVector<QString>> path(QString term)
 void path() {
 
