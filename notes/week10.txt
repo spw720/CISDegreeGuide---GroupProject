@@ -3,6 +3,7 @@ Week 10:
 All:
 -Wednesday: Troubleshooting SQLite/QT connection
 -Wednesday: Planned and divided logic functions
+-Wednesday: Decided to use 3 tables: courses (immutable), notTaken (immutable), and pathTable (changes)
 
 -Thursday: all logic functions
 -Thursday: TODO paths() function, prerequisite logic
