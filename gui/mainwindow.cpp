@@ -136,8 +136,8 @@ void MainWindow::on_NEXT_TERM_clicked()
     ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Possible Courses For Next Term:");
 
-    QString trackReq = ui->TRACK->currentText();
-    QVector<QString> classesNextTerm = required(trackReq);
+    QString term = ui->TERM->currentText();
+    QVector<QString> classesNextTerm = required(term);
     int capacity = classesNextTerm.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
 	  for(auto it = classesNextTerm.begin(); it!=classesNextTerm.end(); it++) {
