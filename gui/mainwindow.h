@@ -16,6 +16,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow();
+    Database db;
 
 private slots:
     void on_ENTER_CLASS_clicked();
