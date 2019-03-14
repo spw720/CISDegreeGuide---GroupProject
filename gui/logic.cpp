@@ -5,7 +5,6 @@
 
 
 QVector<QString> required(QString term) {
-  QString trackReq = ui->TRACK->currentText();
   QSqlQuery qry;
 
   if (trackReq == "Computational Science") {
