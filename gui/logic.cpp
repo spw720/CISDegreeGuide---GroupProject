@@ -55,6 +55,7 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
   }
   if (query.exec()) {
     while (query.next()) {
+      qDebug() << query.value(0).toString();
       QString s = query.value(0).toString() + " " + query.value(1).toString();
 
       couldTake.push_back(s);
