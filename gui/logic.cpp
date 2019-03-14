@@ -83,6 +83,6 @@ QVector<QVector<QString> > path(QString track, QString nextTerm) {
     }
 
 
-    return path;
+    return p;
 
 }
