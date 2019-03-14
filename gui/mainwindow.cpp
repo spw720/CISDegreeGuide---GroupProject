@@ -303,6 +303,7 @@ void MainWindow::on_TRACK_PATH_clicked()
                 }
                 break;
         }
+        inc++;
     }
 
     // keep this at the end of logic to delete the path_table from the database
@@ -315,7 +316,7 @@ void MainWindow::on_TRACK_PATH_clicked()
         qDebug() << "Path Table Not Dropped";
     }
 
-    inc++;
+
 /*
     if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
     {
