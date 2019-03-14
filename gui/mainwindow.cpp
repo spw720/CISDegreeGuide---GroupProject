@@ -284,10 +284,12 @@ void MainWindow::on_TRACK_PATH_clicked()
         for(auto t = (*it).begin(); t!= (*it).end(); t++) {
             ui->COURSE_OUTPUT->addItem(*t);
         }*/
+        qDebug() << it;
+        /*
         switch(it) {
-            case 1: qDebug("yerp");
+            case 1: qDebug<< "yerp";
                 break;
-        }
+        }*/
     }
 
 
