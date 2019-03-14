@@ -135,7 +135,14 @@ void MainWindow::on_NEXT_TERM_clicked()
 {
     ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Possible Courses For Next Term:");
-    ui->COURSE_OUTPUT->addItem("TEMP VALUE");
+
+    QString trackReq = ui->TRACK->currentText();
+    QVector<QString> classesNextTerm = required(trackReq);
+    int capacity = classesNextTerm.capacity();
+    //cout << "Capacity: " << courseList->getAll().capacity() << endl;
+	  for(auto it = classesNextTerm.begin(); it!=classesNextTerm.end(); it++) {
+		    ui->COURSE_OUTPUT->addItem(*it);
+	}
 }
 
 void MainWindow::on_REMAINING_clicked()
@@ -188,11 +195,10 @@ void MainWindow::on_REMAINING_clicked()
     }*/
 
 
-    /*
-    //ui->COURSE_OUTPUT->clear();
+
+    ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Remaining Required Courses:");
-    ui->COURSE_OUTPUT->addItem("TEMP VALUE");
-    */
+
     QString trackReq = ui->TRACK->currentText();
     QVector<QString> req = required(trackReq);
     int capacity = req.capacity();
@@ -311,7 +317,7 @@ void MainWindow::on_SUBJECT_currentIndexChanged(const QString &arg1)
         ui->COURSE_NUM->clear();
 
 	ui->COURSE_NUM->addItems({"210","211","212","313","314","315","322","330","413","415","420","422",
-				"425","427","431","432","433","441","443","445","451","453","461","471","472"}); 
+				"425","427","431","432","433","441","443","445","451","453","461","471","472"});
 
     }
     if (arg1 == "MATH")
