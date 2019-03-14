@@ -8,7 +8,7 @@ QVector<QString> required(QString trackReq) {
     QSqlQuery qry;
 
     if(trackReq == "Computational Science") {
-        qry.prepare("SELECT sname FROM not_taken WHERE cs_track_req = 1 OR core = 1");
+        qry.prepare("SELECT sname, lname FROM not_taken WHERE cs_track_req = 1 OR core = 1");
     }
     else if(trackReq == "Computer Networks") {
         qry.prepare("SELECT sname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
@@ -33,7 +33,10 @@ QVector<QString> required(QString trackReq) {
         //qDebug() << "executing query ...";
         while(qry.next()) {
             //qDebug() << qry.value(0);
-            req.push_back(qry.value(0).toString());
+            QString s = qry.value(0).toString() + " " + qry.value(1).toString();
+
+            req.push_back(s);
+
         }
     }
     else {
