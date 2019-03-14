@@ -68,12 +68,12 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
 }
 
 //QVector<QVector<QString>> path(QString term)
-QVector<QVector<QString>> path(QString track, QString term) {
+QVector<QVector<QString>> path(QString track, QString nextTerm) {
 
-    // path<term<classes>>
+    // path<term<classes>
     QVector<QVector<QString>> path;
     for(int term = 0; term < 9; term++) {  //9 terms, could change later
-        QVector<String> term;
+        QVector<QString> term;
         path.push_back(term);
     }
 
