@@ -50,6 +50,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ENTER_CLASS_clicked()
 {
+/*
     QString cname;
     QString sub = ui->SUBJECT->currentText();
     QString num = ui->COURSE_NUM->currentText();
@@ -80,7 +81,7 @@ void MainWindow::on_ENTER_CLASS_clicked()
     else {
         qDebug() << "Class not removed from not_taken";
     }
-
+*/
     bool cond = false;
     for (int i = 0; i < 43; i++)
     {
@@ -94,6 +95,42 @@ void MainWindow::on_ENTER_CLASS_clicked()
     {
 	 if (ui->SUBJECT->currentText() != "~CHOOSE SUBJECT~" and cond == false)
         {
+
+		//********************
+
+		QString cname;
+    		QString sub = ui->SUBJECT->currentText();
+    		QString num = ui->COURSE_NUM->currentText();
+    		qDebug() << num;
+
+    		QSqlQuery qry;
+
+    		if (sub == "MATH" and (num == "251" or num == "261" or num == "246")) {
+        		cname = "Calculus 1";
+        		qry.prepare("delete from not_taken where lname = '"+cname+"'");
+        		qDebug() << qry.lastError();
+    		}
+    		else if (sub == "MATH" and (num == "252" or num == "262" or num == "247")) {
+        		cname = "Calculus 2";
+        		qry.prepare("delete from not_taken where lname = '"+cname+"'");
+        		qDebug() << qry.lastError();
+    		}
+    		else {
+        		qry.prepare("delete from not_taken where subject = (:sub) and number = (:num)");
+        		qry.bindValue(":sub",sub);
+        		qry.bindValue(":num",num);
+    		}
+
+    		if(qry.exec()) {
+
+        		qDebug() << "Added class removed from not_taken";
+    		}
+    		else {
+        		qDebug() << "Class not removed from not_taken";
+    		}
+
+		//********************
+
             v2[accum][0] = ui->SUBJECT->currentText();
             v2[accum][1] = ui->COURSE_NUM->currentText();
             ui->CLASS_LIST->addItem(v2[accum][0] + " " + v2[accum][1] + "  (" + ui->GRADE->currentText() + ")");
@@ -209,6 +246,20 @@ void MainWindow::on_REMAINING_clicked()
 
 void MainWindow::on_TRACK_PATH_clicked()
 {
+
+    ui->F_1->clear();
+    ui->F_2->clear();
+    ui->F_3->clear();
+
+    ui->W_1->clear();
+    ui->W_2->clear();
+    ui->W_3->clear();
+
+    ui->S_1->clear();
+    ui->S_2->clear();
+    ui->S_3->clear();
+
+
     QSqlQuery ptab;
     ptab.prepare("create table path_table as select * from not_taken");
     if (ptab.exec()) {
@@ -228,10 +279,33 @@ void MainWindow::on_TRACK_PATH_clicked()
     QVector<QVector<QString>> p = path(track, term);
     int capacity = p.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
+    int inc;
     for(auto it = p.begin(); it!=p.end(); it++) {
-
+        /*
         for(auto t = (*it).begin(); t!= (*it).end(); t++) {
             ui->COURSE_OUTPUT->addItem(*t);
+        }*/
+
+
+        switch(inc) {
+            case 0: ui->F_1->addItem(*t);
+                break;
+            case 1: ui->F_2->addItem(*t);
+                break;
+            case 2: ui->F_3->addItem(*t);
+                break;
+            case 3: ui->W_1->addItem(*t);
+                break;
+            case 4: ui->W_2->addItem(*t);
+                break;
+            case 5: ui->W_3->addItem(*t);
+                break;
+            case 6: ui->S_1->addItem(*t);
+                break;
+            case 7: ui->S_2->addItem(*t);
+                break;
+            case 8: ui->S_3->addItem(*t);
+                break;
         }
     }
 
@@ -246,6 +320,8 @@ void MainWindow::on_TRACK_PATH_clicked()
     else {
         qDebug() << "Path Table Not Dropped";
     }
+
+    inc++;
 /*
     if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
     {
