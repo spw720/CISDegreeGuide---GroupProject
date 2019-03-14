@@ -50,6 +50,37 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ENTER_CLASS_clicked()
 {
+    QString cname;
+    QString sub = ui->SUBJECT->currentText();
+    QString num = ui->COURSE_NUM->currentText();
+    qDebug() << num;
+
+    QSqlQuery qry;
+
+    if (sub == "MATH" and (num == "251" or num == "261" or num == "246")) {
+        cname = "Calculus 1";
+        qry.prepare("delete from not_taken where lname = '"+cname+"'");
+        qDebug() << qry.lastError();
+    }
+    else if (sub == "MATH" and (num == "252" or num == "262" or num == "247")) {
+        cname = "Calculus 2";
+        qry.prepare("delete from not_taken where lname = '"+cname+"'");
+        qDebug() << qry.lastError();
+    }
+    else {
+        qry.prepare("delete from not_taken where subject = (:sub) and number = (:num)");
+        qry.bindValue(":sub",sub);
+        qry.bindValue(":num",num);
+    }
+
+    if(qry.exec()) {
+
+        qDebug() << "Added class removed from not_taken";
+    }
+    else {
+        qDebug() << "Class not removed from not_taken";
+    }
+
     bool cond = false;
     for (int i = 0; i < 43; i++)
     {
@@ -61,7 +92,7 @@ void MainWindow::on_ENTER_CLASS_clicked()
 
     if (accum != 43)
     {
-        if (ui->SUBJECT->currentText() != "~CHOOSE SUBJECT~" and cond == false)
+	 if (ui->SUBJECT->currentText() != "~CHOOSE SUBJECT~" and cond == false)
         {
             v2[accum][0] = ui->SUBJECT->currentText();
             v2[accum][1] = ui->COURSE_NUM->currentText();
