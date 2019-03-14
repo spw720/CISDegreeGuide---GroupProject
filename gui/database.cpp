@@ -6,7 +6,7 @@ Database::Database()
 
 bool Database::connOpen(){
     this->db = QSqlDatabase::addDatabase("QSQLITE");
-    this->db.setDatabaseName("/Users/clairekolln/Desktop/cslifeguide/cslifeguide-330/gui/cslg.db");
+    this->db.setDatabaseName("cslg.db");
 
     if (!this->db.open())
     {
