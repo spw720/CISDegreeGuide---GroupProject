@@ -222,7 +222,7 @@ void MainWindow::on_TRACK_PATH_clicked()
 
 
 
-    path();
+    //path();
 
     QString track = ui->TRACK->currentText();
     QString term = ui->TERM->currentText();
