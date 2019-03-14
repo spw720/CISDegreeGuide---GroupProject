@@ -33,7 +33,7 @@ QVector<QString> required(QString trackReq) {
       //qDebug() << "executing query ...";
       while(qry.next()) {
           //qDebug() << qry.value(0);
-          req.push_back(qry.value(0).toString);
+          req.push_back(qry.value(0).(toString()));
       }
   }
   else {
