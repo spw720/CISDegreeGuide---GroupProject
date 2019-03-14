@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "database.h"
 #include "database.cpp"
 
 #include <stdio.h>
@@ -19,14 +19,29 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     db.connOpen();
+    QSqlQuery newtab;
+    newtab.prepare("create table not_taken as select * from courses");
+    if (newtab.exec()) {
+        qDebug() << "New Table made i think";
+    }
+    else {
+        qDebug() << "New Table not made";
+    }
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    QSqlQuery dtab;
+    dtab.prepare("drop table not_taken");
+    if (dtab.exec()) {
+        qDebug() << "Table Dropped";
+    }
+    else {
+        qDebug() << "Table not dropped";
+    }
 
     db.connClosed();
 
@@ -52,11 +67,6 @@ void MainWindow::on_ENTER_CLASS_clicked()
             ui->CLASS_LIST->addItem(v2[accum][0] + " " + v2[accum][1] + "  (" + ui->GRADE->currentText() + ")");
             accum += 1;
             num_classes += 1;
-
-
-
-
-
 
             if(ui->GRADE->currentText() == "A+")
                 gpa_total += 4.0;
@@ -98,26 +108,46 @@ void MainWindow::on_NEXT_TERM_clicked()
 
 void MainWindow::on_REMAINING_clicked()
 {
-    QString trackReq = ui->TRACK->currentText();
 
+    QString trackReq = ui->TRACK->currentText();
+    QSqlQuery qry;
+
+    if (trackReq == "Computational Science") {
+        qry.prepare("select * from courses where cs_track_req = 1 or core = 1");
+    }
+    else if (trackReq == "Computer Networks") {
+        qry.prepare("select sname from courses where cn_track_req = 1");
+    }
+    else if (trackReq == "Computer Security") {
+        qry.prepare("select sname from courses where csec_track_req = 1");
+    }
+    else if (trackReq == "Computer Networks") {
+        qry.prepare("select sname from courses where cn_track_req = 1");
+    }
+    else if (trackReq == "Database and Informatics") {
+        qry.prepare("select sname from courses where cn_track_req = 1");
+    }
+    else {
+        qry.prepare("select sname from courses where sdev_track_req = 1");
+    }
+
+    //qDebug() << trackReq;
     QVector<QString> req;
 
-
-    QSqlQuery qry;
-    //qry.prepare("SELECT FROM notTaken WHERE (:trackReq) = 1 OR core = 1");
-    qry.prepare("SELECT core FROM courses WHERE core = 1");
-
-    qry.bindValue(":trackReq", trackReq);
     if(qry.exec()) {
+        qDebug() << "executing query ...";
         while(qry.next()) {
-            req.push_back(qry.value(1).toString());
-            ui->COURSE_OUTPUT->addItem("WTF");
+
+            qDebug() << qry.value(0);
+            //ui->COURSE_OUTPUT->addItem(qry.value(0));
+            //ui->COURSE_OUTPUT->addItem(qry.value(0));
+            //req.push_back(qry.value(1).toString());
+            //ui->COURSE_OUTPUT->addItem("WTF");
         }
     }
     else {
         ui->COURSE_OUTPUT->addItem("NAH");
     }
-
     /*
     for(auto it = req.begin(); it!=req.end(); it++) {
         //QString str = QString::fromStdString(*it);
@@ -183,118 +213,23 @@ void MainWindow::on_TRACK_PATH_clicked()
     }
     if (ui->TRACK->currentText() == "Computational Science")
     {
-        ui->F_1->clear();
-        ui->F_1->addItems({"Computational Science", "CIS 210", "MTH 231", "SCI 1" });
-        ui->F_2->clear();
-        ui->F_2->addItems({"Computational Science", "CIS 313", "CIS 314", "MTH 252"});
-        ui->F_3->clear();
-        ui->F_3->addItems({"Computational Science", "CIS 425", "CIS+", "WR 320"});
 
-        ui->W_1->clear();
-        ui->W_1->addItems({"Computational Science", "CIS 211", "MTH 232", "SCI 2"});
-        ui->W_2->clear();
-        ui->W_2->addItems({"Computational Science", "CIS 330", "MTH 315", "MTH+"});
-        ui->W_3->clear();
-        ui->W_3->addItems({"Computational Science", "CIS 422", "CIS+", "MTH+"});
-
-        ui->S_1->clear();
-        ui->S_1->addItems({"Computational Science", "CIS 212", "MTH 251", "SCI 3"});
-        ui->S_2->clear();
-        ui->S_2->addItems({"Computational Science", "CIS 415", "CIS+", "MTH+"});
-        ui->S_3->clear();
-        ui->S_3->addItems({"Computational Science", "CIS+", "CIS+", "CIS+"});
     }
     if (ui->TRACK->currentText() == "Computer Networks")
     {
-        ui->F_1->clear();
-        ui->F_1->addItems({"Computer Networks"});
-        ui->F_2->clear();
-        ui->F_2->addItems({"Computer Networks"});
-        ui->F_3->clear();
-        ui->F_3->addItems({"Computer Networks"});
 
-        ui->W_1->clear();
-        ui->W_1->addItems({"Computer Networks"});
-        ui->W_2->clear();
-        ui->W_2->addItems({"Computer Networks"});
-        ui->W_3->clear();
-        ui->W_3->addItems({"Computer Networks"});
-
-        ui->S_1->clear();
-        ui->S_1->addItems({"Computer Networks"});
-        ui->S_2->clear();
-        ui->S_2->addItems({"Computer Networks"});
-        ui->S_3->clear();
-        ui->S_3->addItems({"Computer Networks"});
     }
     if (ui->TRACK->currentText() == "Computer Security")
     {
-        ui->F_1->clear();
-        ui->F_1->addItems({"Computer Security"});
-        ui->F_2->clear();
-        ui->F_2->addItems({"Computer Security"});
-        ui->F_3->clear();
-        ui->F_3->addItems({"Computer Security"});
 
-        ui->W_1->clear();
-        ui->W_1->addItems({"Computer Security"});
-        ui->W_2->clear();
-        ui->W_2->addItems({"Computer Security"});
-        ui->W_3->clear();
-        ui->W_3->addItems({"Computer Security"});
-
-        ui->S_1->clear();
-        ui->S_1->addItems({"Computer Security"});
-        ui->S_2->clear();
-        ui->S_2->addItems({"Computer Security"});
-        ui->S_3->clear();
-        ui->S_3->addItems({"Computer Security"});
     }
     if (ui->TRACK->currentText() == "Database and Informatics")
     {
-        ui->F_1->clear();
-        ui->F_1->addItems({"Database and Informatics"});
-        ui->F_2->clear();
-        ui->F_2->addItems({"Database and Informatics"});
-        ui->F_3->clear();
-        ui->F_3->addItems({"Database and Informatics"});
 
-        ui->W_1->clear();
-        ui->W_1->addItems({"Database and Informatics"});
-        ui->W_2->clear();
-        ui->W_2->addItems({"Database and Informatics"});
-        ui->W_3->clear();
-        ui->W_3->addItems({"Database and Informatics"});
-
-        ui->S_1->clear();
-        ui->S_1->addItems({"Database and Informatics"});
-        ui->S_2->clear();
-        ui->S_2->addItems({"Database and Informatics"});
-        ui->S_3->clear();
-        ui->S_3->addItems({"Database and Informatics"});
     }
     if (ui->TRACK->currentText() == "Software Development")
     {
-        ui->F_1->clear();
-        ui->F_1->addItems({"Software Development"});
-        ui->F_2->clear();
-        ui->F_2->addItems({"Software Development"});
-        ui->F_3->clear();
-        ui->F_3->addItems({"Software Development"});
 
-        ui->W_1->clear();
-        ui->W_1->addItems({"Software Development"});
-        ui->W_2->clear();
-        ui->W_2->addItems({"Software Development"});
-        ui->W_3->clear();
-        ui->W_3->addItems({"Software Development"});
-
-        ui->S_1->clear();
-        ui->S_1->addItems({"Software Development"});
-        ui->S_2->clear();
-        ui->S_2->addItems({"Software Development"});
-        ui->S_3->clear();
-        ui->S_3->addItems({"Software Development"});
     }
 }
 
@@ -338,17 +273,39 @@ void MainWindow::on_DELETE_COURSE_clicked()
         v2[ui->CLASS_LIST->currentRow()][1] = "";
         delete it;
     }*/
+
+
+
     ui->COURSE_OUTPUT->clear();
     ui->SUBJECT->setCurrentIndex(0);
     num_classes = 0.0;
     gpa_total = 0.0;
     ui->GPA_LINE->clear();
     ui->CLASS_LIST->clear();
+
+    QSqlQuery dtab;
+    dtab.prepare("drop table not_taken");
+    if (dtab.exec()) {
+        qDebug() << "Table Dropped";
+        QSqlQuery newtab;
+        newtab.prepare("create table not_taken as select * from courses");
+        if (newtab.exec()) {
+            qDebug() << "New Table made i think";
+        }
+        else {
+            qDebug() << "New Table not made";
+        }
+    }
+    else {
+        qDebug() << "Table not dropped";
+    }
+
     for (int i = 0; i < 43; i++)
     {
         v2[i][0] = "";
         v2[i][1] = "";
     }
+
 }
 
 
