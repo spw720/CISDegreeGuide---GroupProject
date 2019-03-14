@@ -4,7 +4,7 @@
 #include "mainwindow.h"
 
 
-QVector<QString> required(QString term) {
+QVector<QString> required(QString trackReq) {
   QSqlQuery qry;
 
   if (trackReq == "Computational Science") {
@@ -26,11 +26,11 @@ QVector<QString> required(QString term) {
       qry.prepare("SELECT sname FROM not_taken WHERE sdev_track_req = 1 OR core = 1");
   }
 
-  qDebug() << trackReq;
+  //qDebug() << trackReq;
   QVector<QString> req;
 
   if(qry.exec()) {
-      qDebug() << "executing query ...";
+      //qDebug() << "executing query ...";
       while(qry.next()) {
           //qDebug() << qry.value(0);
           req.push_back(qry.value(0));
