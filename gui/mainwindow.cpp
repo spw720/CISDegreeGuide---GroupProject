@@ -279,6 +279,7 @@ void MainWindow::on_TRACK_PATH_clicked()
     QVector<QVector<QString>> p = path(track, term);
     int capacity = p.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
+    int inc;
     for(auto it = p.begin(); it!=p.end(); it++) {
         /*
         for(auto t = (*it).begin(); t!= (*it).end(); t++) {
@@ -286,7 +287,7 @@ void MainWindow::on_TRACK_PATH_clicked()
         }*/
 
 
-        switch(*it) {
+        switch(inc) {
             case 1: qDebug<< "yerp";
                 break;
         }
@@ -303,6 +304,8 @@ void MainWindow::on_TRACK_PATH_clicked()
     else {
         qDebug() << "Path Table Not Dropped";
     }
+
+    inc++;
 /*
     if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
     {
