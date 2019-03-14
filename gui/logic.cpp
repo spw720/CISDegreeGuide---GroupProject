@@ -33,10 +33,12 @@ QVector<QString> required(QString term) {
   if(qry.exec()) {
       qDebug() << "executing query ...";
       while(qry.next()) {
-          qDebug() << qry.value(0);
+          //qDebug() << qry.value(0);
+          req.push_back(qry.value(0));
       }
   }
   else {
-      ui->COURSE_OUTPUT->addItem("Invalid Read");
+      //ui->COURSE_OUTPUT->addItem("Invalid Read");
+      req.push_back("Invalid Read");
   }
 }
