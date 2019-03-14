@@ -1,16 +1,27 @@
 Week 10:
 
 All:
--
+-Wednesday: Troubleshooting SQLite/QT connection
+-Wednesday: Planned and divided logic functions
+
+-Thursday: all logic functions
+-Thursday: TODO paths() function, prerequisite logic
+-Thursday: Bug Fixes
+-Thursday: TODO update README
+
 
 Noah:
--Troubleshooting SQL/QT connection
+-Wrote required() function with Claire and pulled it out to logic file
 
 Sean:
--Troubleshooting SQL/QT connection
+-Fixed bugs with QT
+-Updated courses offered
 
 Joe:
--
+-Wrote nextTerm() function
 
 Claire:
--
+-Created logic for creating new tables
+-Wrote required() function with Noah
+-Classes selected are removed from not_taken table
+
