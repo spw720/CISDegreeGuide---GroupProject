@@ -288,7 +288,7 @@ void MainWindow::on_TRACK_PATH_clicked()
 
 
         switch(inc) {
-            case 1: qDebug<< "yerp";
+            case 1: qDebug()<< "yerp";
                 break;
         }
     }
