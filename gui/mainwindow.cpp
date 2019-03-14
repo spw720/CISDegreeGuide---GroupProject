@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "database.h"
 #include "database.cpp"
-#include "logic.cpp"
+#include "logic.hpp"
 
 #include <stdio.h>
 

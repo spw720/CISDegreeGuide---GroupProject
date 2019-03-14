@@ -68,13 +68,14 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
 }
 
 //QVector<QVector<QString>> path(QString term)
-QVector<QVector<QString>> path(QString track, QString nextTerm) {
+QVector<QVector<QString> > path(QString track, QString nextTerm) {
 
     // path<term<classes>
-    QVector<QVector<QString>> p;
+    QVector<QVector<QString>> p(9);
     for(int term = 0; term < 9; term++) {  //9 terms, could change later
-        QVector<QString> t;
-        p.push_back(t);
+        //QVector<QString> t;
+        //p.push_back(t);
+        p[i].resize(4);
     }
 
     for(auto it = p.begin(); it!=p.end(); it++) {
