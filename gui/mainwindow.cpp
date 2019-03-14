@@ -205,7 +205,7 @@ void MainWindow::on_REMAINING_clicked()
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
 	  for(auto it = req.begin(); it!=req.end(); it++) {
 		    ui->COURSE_OUTPUT->addItem(*it);
-	}
+    }
 
 }
 
@@ -223,6 +223,19 @@ void MainWindow::on_TRACK_PATH_clicked()
 
 
     path();
+
+    QString track = ui->TRACK->currentText();
+    QString term = ui->TERM->currentText();
+
+    QVector<QVector<QString>> path = path(track, term);
+    int capacity = path.capacity();
+    //cout << "Capacity: " << courseList->getAll().capacity() << endl;
+    for(auto it = path.begin(); it!=path.end(); it++) {
+
+        for(auto t = (*it).begin(); t!= (*it).end(); t++) {
+            ui->COURSE_OUTPUT->addItem(*t);
+        }
+    }
 
 
 
