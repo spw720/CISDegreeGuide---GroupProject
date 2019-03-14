@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "database.h"
 #include "database.cpp"
+#include "logic.cpp"
 
 #include <stdio.h>
 
@@ -108,7 +109,7 @@ void MainWindow::on_NEXT_TERM_clicked()
 
 void MainWindow::on_REMAINING_clicked()
 {
-
+    /*
     QString trackReq = ui->TRACK->currentText();
     QSqlQuery qry;
 
@@ -147,7 +148,7 @@ void MainWindow::on_REMAINING_clicked()
     }
     else {
         ui->COURSE_OUTPUT->addItem("NAH");
-    }
+    }*/
     /*
     for(auto it = req.begin(); it!=req.end(); it++) {
         //QString str = QString::fromStdString(*it);
@@ -161,6 +162,14 @@ void MainWindow::on_REMAINING_clicked()
     ui->COURSE_OUTPUT->addItem("Remaining Required Courses:");
     ui->COURSE_OUTPUT->addItem("TEMP VALUE");
     */
+    QString trackReq = ui->TRACK->currentText();
+    QVector<QString> req = required(trackReq);
+    int capacity = req.capacity();
+    //cout << "Capacity: " << courseList->getAll().capacity() << endl;
+	  for(auto it = req.begin(); it!=req.end(); it++) {
+		    ui->COURSE_OUTPUT->addItem(*it);
+	}
+
 }
 
 void MainWindow::on_TRACK_PATH_clicked()
@@ -307,5 +316,3 @@ void MainWindow::on_DELETE_COURSE_clicked()
     }
 
 }
-
-
