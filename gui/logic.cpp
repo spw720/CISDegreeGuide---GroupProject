@@ -46,17 +46,15 @@ QVector<QString> required(QString trackReq) {
     return req;
 }
 //QVector<QVector<QString>> path(QString term)
-void path() {
-
-
-
-    // keep this at the end of logic to delete the path_table from the database
-    QSqlQuery del;
-    del.prepare("drop table path_table");
-    if (del.exec()) {
-        qDebug() << "Path Table Dropped";
+QVector<QVector<QString>> path(QString term) {
+    QVector<QVector<QString>> path;
+    for(int i = 0; i < 9; i++) {
+        QVector<QString> i;
+        path.push_back(i);
     }
-    else {
-        qDebug() << "Path Table Not Dropped";
-    }
+
+    
+
+
+
 }
