@@ -75,7 +75,7 @@ QVector<QVector<QString> > path(QString track, QString nextTerm) {
     for(int term = 0; term < 9; term++) {  //9 terms, could change later
         //QVector<QString> t;
         //p.push_back(t);
-        p[i].resize(4);
+        p[term].resize(4);
     }
 
     for(auto it = p.begin(); it!=p.end(); it++) {
