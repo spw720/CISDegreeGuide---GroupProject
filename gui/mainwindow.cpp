@@ -95,9 +95,9 @@ void MainWindow::on_ENTER_CLASS_clicked()
     {
 	 if (ui->SUBJECT->currentText() != "~CHOOSE SUBJECT~" and cond == false)
         {
-	    
+
 		//********************
-		
+
 		QString cname;
     		QString sub = ui->SUBJECT->currentText();
     		QString num = ui->COURSE_NUM->currentText();
@@ -246,6 +246,20 @@ void MainWindow::on_REMAINING_clicked()
 
 void MainWindow::on_TRACK_PATH_clicked()
 {
+
+    ui->F_1->clear();
+    ui->F_2->clear();
+    ui->F_3->clear();
+
+    ui->W_1->clear();
+    ui->W_2->clear();
+    ui->W_3->clear();
+
+    ui->S_1->clear();
+    ui->S_2->clear();
+    ui->S_3->clear();
+
+
     QSqlQuery ptab;
     ptab.prepare("create table path_table as select * from not_taken");
     if (ptab.exec()) {
@@ -266,9 +280,13 @@ void MainWindow::on_TRACK_PATH_clicked()
     int capacity = p.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
     for(auto it = p.begin(); it!=p.end(); it++) {
-
+        /*
         for(auto t = (*it).begin(); t!= (*it).end(); t++) {
             ui->COURSE_OUTPUT->addItem(*t);
+        }*/
+        switch(it) {
+            case 1: qDebug("yerp");
+                break;
         }
     }
 
