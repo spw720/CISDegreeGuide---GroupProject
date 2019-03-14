@@ -27,7 +27,8 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    database.cpp
+    database.cpp \
+    logic.cpp
 
 HEADERS += \
         mainwindow.h \

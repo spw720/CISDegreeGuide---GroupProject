@@ -205,6 +205,17 @@ void MainWindow::on_REMAINING_clicked()
 
 void MainWindow::on_TRACK_PATH_clicked()
 {
+    QSqlQuery ptab;
+    ptab.prepare("create table path_table as select * from not_taken");
+    if (ptab.exec()) {
+        qDebug() << "Path Table made";
+    }
+    else {
+        qDebug() << "New Table not made";
+    }
+
+    path();
+/*
     if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
     {
         ui->F_1->clear();
@@ -271,6 +282,7 @@ void MainWindow::on_TRACK_PATH_clicked()
     {
 
     }
+    */
 }
 
 void MainWindow::on_SUBJECT_currentIndexChanged(const QString &arg1)
