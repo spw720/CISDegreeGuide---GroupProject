@@ -289,22 +289,9 @@ void MainWindow::on_TRACK_PATH_clicked()
 
         switch(inc) {
             case 0: ui->F_1->addItem(*it);
-                break;
-            case 1: ui->F_2->addItem(*it);
-                break;
-            case 2: ui->F_3->addItem(*it);
-                break;
-            case 3: ui->W_1->addItem(*it);
-                break;
-            case 4: ui->W_2->addItem(*it);
-                break;
-            case 5: ui->W_3->addItem(*it);
-                break;
-            case 6: ui->S_1->addItem(*it);
-                break;
-            case 7: ui->S_2->addItem(*it);
-                break;
-            case 8: ui->S_3->addItem(*it);
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->F_1->addItem(*t);
+                }
                 break;
         }
     }
