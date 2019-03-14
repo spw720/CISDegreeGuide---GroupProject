@@ -227,7 +227,7 @@ void MainWindow::on_TRACK_PATH_clicked()
     QString track = ui->TRACK->currentText();
     QString term = ui->TERM->currentText();
 
-    QVector<QVector<QString>> path = path("nah", "nah");
+    QVector<QVector<QString>> path = path(track, term);
     int capacity = path.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
     for(auto it = path.begin(); it!=path.end(); it++) {
