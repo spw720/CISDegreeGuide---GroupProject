@@ -45,20 +45,33 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
   QSqlQuery query;
   QVector<QString> couldTake;
   if (term == "Fall") {
-    query.prepare("SELECT subject, number FROM not_taken WHERE fall = 1");
+    query.prepare("SELECT subject, number,prereq1,prereq2 FROM not_taken WHERE fall = 1");
   }
   else if (term == "Winter") {
-    query.prepare("SELECT subject, number FROM not_taken WHERE winter = 1");
+    query.prepare("SELECT subject, number,prereq1,prereq2 FROM not_taken WHERE winter = 1");
   }
   else if (term == "Spring") {
-    query.prepare("SELECT subject, number FROM not_taken WHERE spring = 1");
+    query.prepare("SELECT subject, number,prereq1,prereq2 FROM not_taken WHERE spring = 1");
   }
   if (query.exec()) {
     while (query.next()) {
-      qDebug() << query.value(0).toString();
-      QString s = query.value(0).toString() + " " + query.value(1).toString();
-
-      couldTake.push_back(s);
+      QSqlQuery check;
+      QString p1 = query.value(2).toString();
+      QString p2 = query.value(3).toString();
+      check.prepare("select * from not_taken where not exists(select 1 from not_taken where sname = (:p1) or sname = (:p2))");
+      check.bindValue(":p1",p1);
+      check.bindValue(":p2",p2);
+      if(check.exec()) {
+          QString prev = "";
+          while(check.next()) {
+              if (query.value(1).toString() != prev)
+               {
+                QString s = query.value(0).toString() + " " + query.value(1).toString();
+                couldTake.push_back(s);
+                prev = query.value(1).toString();
+              }
+          }
+        }
     }
   }
   else {
