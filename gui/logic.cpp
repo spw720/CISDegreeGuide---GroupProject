@@ -11,19 +11,19 @@ QVector<QString> required(QString trackReq) {
         qry.prepare("SELECT sname, lname FROM not_taken WHERE cs_track_req = 1 OR core = 1");
     }
     else if(trackReq == "Computer Networks") {
-        qry.prepare("SELECT sname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
+        qry.prepare("SELECT sname, lname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
     }
     else if(trackReq == "Computer Security") {
-        qry.prepare("SELECT sname FROM not_taken WHERE csec_track_req = 1 OR core = 1");
+        qry.prepare("SELECT sname, lname FROM not_taken WHERE csec_track_req = 1 OR core = 1");
     }
     else if(trackReq == "Computer Networks") {
-        qry.prepare("SELECT sname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
+        qry.prepare("SELECT sname, lname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
     }
     else if(trackReq == "Database and Informatics") {
-        qry.prepare("SELECT sname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
+        qry.prepare("SELECT sname, lname FROM not_taken WHERE cn_track_req = 1 OR core = 1");
     }
     else {
-        qry.prepare("SELECT sname FROM not_taken WHERE sdev_track_req = 1 OR core = 1");
+        qry.prepare("SELECT sname, lname FROM not_taken WHERE sdev_track_req = 1 OR core = 1");
     }
 
     QVector<QString> req;
@@ -44,13 +44,13 @@ QVector<QString> required(QString trackReq) {
 QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
   QSqlQuery query;
   QVector<QString> couldTake;
-  if (term == "fall") {
+  if (term == "Fall") {
     query.prepare("SELECT subject, number FROM not_taken WHERE fall = 1");
   }
-  else if (term == "winter") {
+  else if (term == "Winter") {
     query.prepare("SELECT subject, number FROM not_taken WHERE winter = 1");
   }
-  else if (term == "spring") {
+  else if (term == "Spring") {
     query.prepare("SELECT subject, number FROM not_taken WHERE spring = 1");
   }
   if (query.exec()) {
