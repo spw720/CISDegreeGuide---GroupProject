@@ -26,21 +26,16 @@ QVector<QString> required(QString trackReq) {
         qry.prepare("SELECT sname FROM not_taken WHERE sdev_track_req = 1 OR core = 1");
     }
 
-    //qDebug() << trackReq;
     QVector<QString> req;
 
     if(qry.exec()) {
-        //qDebug() << "executing query ...";
         while(qry.next()) {
-            //qDebug() << qry.value(0);
             QString s = qry.value(0).toString() + " " + qry.value(1).toString();
-
             req.push_back(s);
-
         }
     }
     else {
-      //ui->COURSE_OUTPUT->addItem("Invalid Read");
+        //ui->COURSE_OUTPUT->addItem("Invalid Read");
         req.push_back("Invalid Read");
     }
     return req;
@@ -73,17 +68,19 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
 }
 
 //QVector<QVector<QString>> path(QString term)
-void path() {
+QVector<QVector<QString>> path(QString track, QString term) {
 
-
-
-    // keep this at the end of logic to delete the path_table from the database
-    QSqlQuery del;
-    del.prepare("drop table path_table");
-    if (del.exec()) {
-        qDebug() << "Path Table Dropped";
+    // path<term<classes>>
+    QVector<QVector<QString>> path;
+    for(int term = 0; term < 9; term++) {  //9 terms, could change later
+        QVector<String> term;
+        path.push_back(term);
     }
-    else {
-        qDebug() << "Path Table Not Dropped";
+
+    for(int term = 0; term < 9; term++) {
+        term.push_back("Hey");
     }
+
+    return path;
+
 }
