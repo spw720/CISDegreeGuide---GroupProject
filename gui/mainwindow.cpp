@@ -194,8 +194,6 @@ void MainWindow::on_REMAINING_clicked()
         ui->COURSE_OUTPUT->addItem("WTF");
     }*/
 
-
-
     ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Remaining Required Courses:");
 
