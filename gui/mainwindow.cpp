@@ -288,15 +288,53 @@ void MainWindow::on_TRACK_PATH_clicked()
 
 
         switch(inc) {
-            case 0: 
+            case 0:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
                     ui->F_1->addItem(*t);
                 }
                 break;
+            case 1:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->F_2->addItem(*t);
+                }
+                break;
+           case 2:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->F_3->addItem(*t);
+                }
+                break;
+            case 3:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->W_1->addItem(*t);
+                }
+                break;
+            case 4:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->W_2->addItem(*t);
+                }
+                break;
+            case 5:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->W_3->addItem(*t);
+                }
+                break;
+           case 6:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->S_1->addItem(*t);
+                }
+                break;
+            case 7:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->S_2->addItem(*t);
+                }
+                break;
+            case 8:
+                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                    ui->S_3->addItem(*t);
+                }
+                break;
         }
     }
-
-
 
     // keep this at the end of logic to delete the path_table from the database
     QSqlQuery del;
