@@ -288,7 +288,7 @@ void MainWindow::on_TRACK_PATH_clicked()
 
 
         switch(inc) {
-            case 0: ui->F_1->addItem(*it);
+            case 0: 
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
                     ui->F_1->addItem(*t);
                 }
