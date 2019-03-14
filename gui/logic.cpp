@@ -78,8 +78,8 @@ QVector<QVector<QString> > path(QString track, QString nextTerm) {
         p[term].resize(4);
     }
 
-    for(auto it = p.begin(); it!=p.end(); it++) {
-        (*it).push_back("Hey");
+    for(auto term = p.begin(); term!=p.end(); term++) {
+        (*term).push_back("Hey");
     }
 
 
