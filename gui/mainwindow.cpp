@@ -219,17 +219,15 @@ void MainWindow::on_TRACK_PATH_clicked()
     ui->F_1->clear();
     ui->F_2->clear();
     ui->F_3->clear();
-
     ui->W_1->clear();
     ui->W_2->clear();
     ui->W_3->clear();
-
     ui->S_1->clear();
     ui->S_2->clear();
     ui->S_3->clear();
 
-	
-	
+
+
     if(ui->TRACK->currentText() != "~CHOOSE TRACK~")
     {
 
@@ -268,17 +266,17 @@ void MainWindow::on_TRACK_PATH_clicked()
                 break;
             case 1:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->F_2->addItem(*t);
+                    ui->W_1->addItem(*t);
                 }
                 break;
            case 2:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->F_3->addItem(*t);
+                    ui->S_1->addItem(*t);
                 }
                 break;
             case 3:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->W_1->addItem(*t);
+                    ui->F_2->addItem(*t);
                 }
                 break;
             case 4:
@@ -288,17 +286,17 @@ void MainWindow::on_TRACK_PATH_clicked()
                 break;
             case 5:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->W_3->addItem(*t);
+                    ui->S_2->addItem(*t);
                 }
                 break;
            case 6:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->S_1->addItem(*t);
+                    ui->F_3->addItem(*t);
                 }
                 break;
             case 7:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->S_2->addItem(*t);
+                    ui->W_3->addItem(*t);
                 }
                 break;
             case 8:
