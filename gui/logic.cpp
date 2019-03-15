@@ -142,12 +142,12 @@ QVector<QVector<QString> > path(QString track, QString nTerm) {
 
         for(auto it = courses.begin(); it!=courses.end(); it++) {
   		    //ui->COURSE_OUTPUT->addItem(*it);
-            
+
             if(nTerm == "Winter") {
-                it++;
+                continue;
             }
             else if(nTerm == "Spring") {
-                it++;
+                continue;
             }
 
             (*term).push_back(*it);
