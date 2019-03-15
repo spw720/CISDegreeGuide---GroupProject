@@ -261,48 +261,48 @@ void MainWindow::on_TRACK_PATH_clicked()
         switch(inc) {
             case 0:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->F_1->addItem(*t);
+                    if(*t != "") ui->F_1->addItem(*t);
                 }
                 break;
             case 1:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->W_1->addItem(*t);
-                }
+                    if(*t != "") ui->W_1->addItem(*t);
+		}
                 break;
            case 2:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->S_1->addItem(*t);
-                }
+                    if(*t != "") ui->S_1->addItem(*t);
+		}
                 break;
             case 3:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->F_2->addItem(*t);
-                }
+                    if(*t != "") ui->F_2->addItem(*t);
+		}
                 break;
             case 4:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->W_2->addItem(*t);
-                }
+                    if(*t != "") ui->W_2->addItem(*t);
+		}
                 break;
             case 5:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->S_2->addItem(*t);
-                }
+                    if(*t != "") ui->S_2->addItem(*t);
+		}
                 break;
            case 6:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->F_3->addItem(*t);
-                }
+                    if(*t != "") ui->F_3->addItem(*t);
+		}
                 break;
             case 7:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->W_3->addItem(*t);
-                }
+                    if(*t != "") ui->W_3->addItem(*t);
+		}
                 break;
             case 8:
                 for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    ui->S_3->addItem(*t);
-                }
+                    if(*t != "") ui->S_3->addItem(*t);
+		}
                 break;
         }
         inc++;
@@ -454,7 +454,16 @@ void MainWindow::on_DELETE_COURSE_clicked()
         delete it;
     }*/
 
-
+	
+    ui->F_1->clear();
+    ui->F_2->clear();
+    ui->F_3->clear();
+    ui->W_1->clear();
+    ui->W_2->clear();
+    ui->W_3->clear();
+    ui->S_1->clear();
+    ui->S_2->clear();
+    ui->S_3->clear();
 
     ui->COURSE_OUTPUT->clear();
     ui->SUBJECT->setCurrentIndex(0);
