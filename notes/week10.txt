@@ -6,13 +6,16 @@ All:
 -Wednesday: Decided to use 3 tables: courses (immutable), notTaken (immutable), and pathTable (changes)
 
 -Thursday: all logic functions
--Thursday: TODO paths() function, prerequisite logic
+-Thursday: paths() function, prerequisite logic
+-ThursdayL split nextTerm() by the table it should read
 -Thursday: Bug Fixes
 -Thursday: TODO update README
 
-
 Noah:
--Wrote required() function with Claire and pulled it out to logic file
+-Wrote required() function logic and pulled it out to logic.cpp
+-Wrote paths() with Claire
+-Cleaned up repo
+-Refactored and commented code
 
 Sean:
 -Fixed bugs with QT
@@ -23,6 +26,7 @@ Joe:
 
 Claire:
 -Created logic for creating new tables
--Wrote required() function with Noah
+-Wrote required() queries
 -Classes selected are removed from not_taken table
+-Wrote paths() with Noah
 
