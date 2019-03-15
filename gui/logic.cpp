@@ -46,7 +46,7 @@ QVector<QString> nextTerm(QString term,QString table) { //, vector<string> taken
   QSqlQuery query;
   QVector<QString> couldTake;
   couldTake.clear();
-  if (table == "not_taken") {
+  if (table == "not_taken") { //inital query with the term passed to the function
       if (term == "Fall") {
         query.prepare("SELECT sname,prereq1,prereq2 FROM not_taken WHERE fall = 1");
       }
@@ -57,11 +57,11 @@ QVector<QString> nextTerm(QString term,QString table) { //, vector<string> taken
         query.prepare("SELECT sname,prereq1,prereq2 FROM not_taken WHERE spring = 1");
       }
       if (query.exec()) {
-        while (query.next()) {
+        while (query.next()) { // take results of initial query and check prerecs
           QSqlQuery check;
           QString p1 = query.value(1).toString();
           QString p2 = query.value(2).toString();
-          check.prepare("select * from not_taken where not exists(select 1 from not_taken where sname = (:p1) or sname = (:p2))");
+          check.prepare("select * from not_taken where not exists(select 1 from not_taken where sname = (:p1) or sname = (:p2))"); //p1,p2 are prerecs
           check.bindValue(":p1",p1);
           check.bindValue(":p2",p2);
           if(check.exec()) {
