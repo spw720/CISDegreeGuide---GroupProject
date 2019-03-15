@@ -32,7 +32,8 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-    database.h
+    database.h \
+    logic.hpp
 
 FORMS += \
         mainwindow.ui

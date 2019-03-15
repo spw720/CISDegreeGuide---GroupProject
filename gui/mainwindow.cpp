@@ -143,7 +143,7 @@ void MainWindow::on_NEXT_TERM_clicked()
     ui->COURSE_OUTPUT->addItem("Possible Courses For Next Term:");
 
     QString term = ui->TERM->currentText();
-    QVector<QString> classesNextTerm = nextTerm(term);
+    QVector<QString> classesNextTerm = nextTerm(term, "not_taken");
     int capacity = classesNextTerm.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
 	  for(auto it = classesNextTerm.begin(); it!=classesNextTerm.end(); it++) {
@@ -235,7 +235,7 @@ void MainWindow::on_TRACK_PATH_clicked()
         qDebug() << "Path Table made";
     }
     else {
-        qDebug() << "New Table not made";
+        qDebug() << "Path Table not made";
     }
 
 
