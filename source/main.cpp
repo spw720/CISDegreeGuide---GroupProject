@@ -1,28 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include "course.hpp"
-#include "courseList.hpp"
-using namespace std;
+#include "mainwindow.h"
+#include <QApplication>
 
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
-int main() {
-	//TODO
-
-	//Populates courseList
-	CourseList *courseList = new CourseList();
-
-	//Just for testing
-	//Prints course's subject and number
-	cout << "Capacity: " << courseList->getAll().capacity() << endl;
-	//courseList->getAll().capacity();
-	for(auto it = courseList->getUpperElectives().begin(); it!=courseList->getUpperElectives().end(); it++) {
-		//cout << "Here " << courseList->getAll().size() << endl;
-		cout << (*it).getSubject() << " " << (*it).getNumber() << endl;
-	}
-
-	//TODO build courseList->toTake from coreLower, coreUpper, track
-	//using find: if(std::find(v.begin(), v.end(), x) != v.end()) {}
-
-	return 0;
+    return a.exec();
 }
+

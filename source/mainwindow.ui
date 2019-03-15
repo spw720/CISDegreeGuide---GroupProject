@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>629</width>
+    <height>914</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="18" column="1">
+     <widget class="QListWidget" name="F_2"/>
+    </item>
+    <item row="6" column="2">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Course Output</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="1" colspan="4">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1" colspan="4">
+     <spacer name="horizontalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="7" column="2" rowspan="2" colspan="3">
+     <widget class="QListWidget" name="COURSE_OUTPUT"/>
+    </item>
+    <item row="19" column="2">
+     <widget class="QListWidget" name="W_3"/>
+    </item>
+    <item row="17" column="1">
+     <widget class="QListWidget" name="F_1"/>
+    </item>
+    <item row="10" column="2">
+     <widget class="QComboBox" name="TERM">
+      <item>
+       <property name="text">
+        <string>Fall</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Winter</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Spring</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="14" column="0" colspan="2">
+     <widget class="QPushButton" name="REMAINING">
+      <property name="text">
+       <string>See remaining required courses</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Choose a CIS track:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Course List</string>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="2" rowspan="2" colspan="3">
+     <widget class="QPushButton" name="TRACK_PATH">
+      <property name="text">
+       <string>Show possible path to graduation with selected track</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Choose all completed class details, then press 'Enter Class'</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="1">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Fall</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="4">
+     <widget class="QLabel" name="label_3">
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>Welcome to CS Life Guide: An interactive degree guide.</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="4">
+     <spacer name="horizontalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="18" column="2">
+     <widget class="QListWidget" name="W_2"/>
+    </item>
+    <item row="18" column="0">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="1" colspan="4">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QComboBox" name="SUBJECT">
+      <item>
+       <property name="text">
+        <string>~CHOOSE SUBJECT~</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CIS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>MATH</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>WR</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SCI</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="2">
+     <widget class="QPushButton" name="DELETE_COURSE">
+      <property name="text">
+       <string>Reset Course List</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1" colspan="4">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="17" column="2">
+     <widget class="QListWidget" name="W_1"/>
+    </item>
+    <item row="11" column="2" colspan="3">
+     <widget class="QComboBox" name="TRACK">
+      <item>
+       <property name="text">
+        <string>~CHOOSE TRACK~</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Computational Science</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Computer Networks</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Computer Security</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Database and Informatics</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Software Development</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Foundations</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="16" column="2">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Winter</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="2">
+     <widget class="QListWidget" name="CLASS_LIST">
+      <property name="cursor" stdset="0">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Choose Next Term:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1" colspan="4">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="13" column="0" colspan="2">
+     <widget class="QPushButton" name="NEXT_TERM">
+      <property name="text">
+       <string>See courses to take next term</string>
+      </property>
+     </widget>
+    </item>
+    <item row="19" column="1">
+     <widget class="QListWidget" name="F_3"/>
+    </item>
+    <item row="4" column="2">
+     <widget class="QComboBox" name="COURSE_NUM">
+      <item>
+       <property name="text">
+        <string>~CHOOSE COURSE #~</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QPushButton" name="ENTER_CLASS">
+      <property name="text">
+       <string>Enter Class</string>
+      </property>
+     </widget>
+    </item>
+    <item row="19" column="0">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QComboBox" name="GRADE">
+      <item>
+       <property name="text">
+        <string>A+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>A-</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B-</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C-</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>Major GPA:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="4">
+     <widget class="QLineEdit" name="GPA_LINE"/>
+    </item>
+    <item row="18" column="3" colspan="2">
+     <widget class="QListWidget" name="S_2"/>
+    </item>
+    <item row="19" column="3" colspan="2">
+     <widget class="QListWidget" name="S_3"/>
+    </item>
+    <item row="17" column="3" colspan="2">
+     <widget class="QListWidget" name="S_1"/>
+    </item>
+    <item row="16" column="3">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Spring</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>629</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
