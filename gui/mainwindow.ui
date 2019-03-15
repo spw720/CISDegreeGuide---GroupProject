@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>629</width>
-    <height>624</height>
+    <height>914</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -288,7 +288,7 @@
     <item row="10" column="1">
      <widget class="QLabel" name="label_9">
       <property name="text">
-       <string>Choose Current Term:</string>
+       <string>Choose Next Term:</string>
       </property>
      </widget>
     </item>

@@ -248,7 +248,7 @@ void MainWindow::on_TRACK_PATH_clicked()
     QVector<QVector<QString>> p = path(track, term);
     int capacity = p.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
-    int inc = 0;
+    int inc=0;
     for(auto it = p.begin(); it!=p.end(); it++) {
         /*
         for(auto t = (*it).begin(); t!= (*it).end(); t++) {
