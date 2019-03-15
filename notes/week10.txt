@@ -1,4 +1,4 @@
-Week 10:
+Wek 10:
 
 All:
 -Wednesday: Troubleshooting SQLite/QT connection
@@ -25,8 +25,8 @@ Joe:
 -Wrote nextTerm() function
 
 Claire:
--Created logic for creating new tables
+-Created logic for creating new table, helped integrate SQLite w/ Qt
 -Wrote required() queries
 -Classes selected are removed from not_taken table
--Wrote paths() with Noah
-
+- Wrote paths() with Noah, utilizing nextTerm() logic
+- wrote the logic to check prereqs for possible nextTerm() classes
