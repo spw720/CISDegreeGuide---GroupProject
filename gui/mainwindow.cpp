@@ -228,6 +228,10 @@ void MainWindow::on_TRACK_PATH_clicked()
     ui->S_2->clear();
     ui->S_3->clear();
 
+	
+	
+    if(ui->TRACK->currentTest() != "~CHOOSE TRACK~")
+    {
 
     QSqlQuery ptab;
     ptab.prepare("create table path_table as select * from not_taken");
@@ -315,7 +319,29 @@ void MainWindow::on_TRACK_PATH_clicked()
     else {
         qDebug() << "Path Table Not Dropped";
     }
+    }//end of (if track != ~CHOOSE TRACK~)
+    else{
+	ui->F_1->clear();
+        ui->F_1->addItem("CHOOSE A TRACK");
+        ui->F_2->clear();
+        ui->F_2->addItem("CHOOSE A TRACK");
+        ui->F_3->clear();
+        ui->F_3->addItem("CHOOSE A TRACK");
 
+        ui->W_1->clear();
+        ui->W_1->addItem("CHOOSE A TRACK");
+        ui->W_2->clear();
+        ui->W_2->addItem("CHOOSE A TRACK");
+        ui->W_3->clear();
+        ui->W_3->addItem("CHOOSE A TRACK");
+
+        ui->S_1->clear();
+        ui->S_1->addItem("CHOOSE A TRACK");
+        ui->S_2->clear();
+        ui->S_2->addItem("CHOOSE A TRACK");
+        ui->S_3->clear();
+        ui->S_3->addItem("CHOOSE A TRACK");
+    }
 
 /*
     if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
