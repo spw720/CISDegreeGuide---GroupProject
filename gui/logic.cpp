@@ -45,19 +45,19 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
   QSqlQuery query;
   QVector<QString> couldTake;
   if (term == "Fall") {
-    query.prepare("SELECT subject, number,prereq1,prereq2 FROM not_taken WHERE fall = 1");
+    query.prepare("SELECT sname,prereq1,prereq2 FROM not_taken WHERE fall = 1");
   }
   else if (term == "Winter") {
-    query.prepare("SELECT subject, number,prereq1,prereq2 FROM not_taken WHERE winter = 1");
+    query.prepare("SELECT sname,prereq1,prereq2 FROM not_taken WHERE winter = 1");
   }
   else if (term == "Spring") {
-    query.prepare("SELECT subject, number,prereq1,prereq2 FROM not_taken WHERE spring = 1");
+    query.prepare("SELECT sname,prereq1,prereq2 FROM not_taken WHERE spring = 1");
   }
   if (query.exec()) {
     while (query.next()) {
       QSqlQuery check;
-      QString p1 = query.value(2).toString();
-      QString p2 = query.value(3).toString();
+      QString p1 = query.value(1).toString();
+      QString p2 = query.value(2).toString();
       check.prepare("select * from not_taken where not exists(select 1 from not_taken where sname = (:p1) or sname = (:p2))");
       check.bindValue(":p1",p1);
       check.bindValue(":p2",p2);
@@ -66,9 +66,9 @@ QVector<QString> nextTerm(QString term) { //, vector<string> taken, string track
           while(check.next()) {
               if (query.value(1).toString() != prev)
                {
-                QString s = query.value(0).toString() + " " + query.value(1).toString();
+                QString s = query.value(0).toString();
                 couldTake.push_back(s);
-                prev = query.value(1).toString();
+                prev = query.value(0).toString();
               }
           }
         }
@@ -93,7 +93,26 @@ QVector<QVector<QString> > path(QString track, QString nextTerm) {
     }
 
     for(auto term = p.begin(); term!=p.end(); term++) {
-        (*term).push_back("Hey");
+        //(*term).push_back("Hey");
+
+        QVector<QString> courses = nextTerm(term);
+        for(auto it = courses.begin(); it!=courses.end(); it++) {
+  		    //ui->COURSE_OUTPUT->addItem(*it);
+            (*term).push_back(*it);
+            QSqlQuery rmv;
+            rmv.prepare("DELETE FROM path_table WHERE sname = :sn");
+            rmv.bindValue(":sn",*it);
+            if (rmv.exec()) {
+                qDebug() << "Course used in path";
+            }
+            else {
+                qDebug() << "Query problem in path";
+            }
+
+  	    }
+
+
+
     }
 
 
