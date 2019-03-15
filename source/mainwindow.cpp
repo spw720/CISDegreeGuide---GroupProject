@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 
-//QString class_list[48][2] = {{"CIS"," 210"},{"MTH"," 251"}};
 typedef QVector<QString> inner; // Type Vector of QStrings
 typedef QVector<inner> outer; // Type Vector of inner Vector Type
 outer v2(43, inner(2)); // Create o Vector of Vectors of QStrings
@@ -15,6 +14,7 @@ int accum = 0; // index accumulator
 double num_classes = 0.0;
 double gpa_total = 0.00;
 
+//Constructor
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+//Destructor
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -48,8 +49,13 @@ MainWindow::~MainWindow()
 
 }
 
+//*********************************************************************************
+
 void MainWindow::on_ENTER_CLASS_clicked()
 {
+
+//add class based on information in dropdowns
+//42 is used as max input.
 
     bool cond = false;
     for (int i = 0; i < 43; i++)
@@ -137,8 +143,13 @@ void MainWindow::on_ENTER_CLASS_clicked()
     }
 }
 
+//*********************************************************************************
+
 void MainWindow::on_NEXT_TERM_clicked()
 {
+
+//Populate course output list on next term clicked
+
     ui->COURSE_OUTPUT->clear(); //reset output each use
     ui->COURSE_OUTPUT->addItem("Possible Courses For Next Term:"); //title
 
@@ -151,8 +162,12 @@ void MainWindow::on_NEXT_TERM_clicked()
 	}
 }
 
+//*********************************************************************************
+
 void MainWindow::on_REMAINING_clicked()
 {
+
+//Populate course output list on remaining clicked
 
     ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Remaining Required Courses:");
@@ -166,8 +181,13 @@ void MainWindow::on_REMAINING_clicked()
     }
 }
 
+//*********************************************************************************
+
 void MainWindow::on_TRACK_PATH_clicked()
 {
+
+//Populate path fields on 'show possible paths' clicked.
+
     //Clear windows
     ui->F_1->clear();
     ui->F_2->clear();
@@ -288,8 +308,13 @@ void MainWindow::on_TRACK_PATH_clicked()
     }
 }
 
+//*********************************************************************************
+
 void MainWindow::on_SUBJECT_currentIndexChanged(const QString &arg1)
 {
+	
+//Populate course number dropdowns based on which subject is selected
+
     if (arg1 == "~CHOOSE SUBJECT~")
     {
         ui->COURSE_NUM->clear();
@@ -321,16 +346,13 @@ void MainWindow::on_SUBJECT_currentIndexChanged(const QString &arg1)
     }
 }
 
+//*********************************************************************************
+
 void MainWindow::on_DELETE_COURSE_clicked()
 {
-    /*if (ui->CLASS_LIST->)
-    //{
-        QListWidgetItem *it = ui->CLASS_LIST->takeItem(ui->CLASS_LIST->currentRow());
-        v2[ui->CLASS_LIST->currentRow()][0] = "";
-        v2[ui->CLASS_LIST->currentRow()][1] = "";
-        delete it;
-    }*/
 
+//Reset course list button click
+//resets all fields
 
     ui->F_1->clear();
     ui->F_2->clear();
