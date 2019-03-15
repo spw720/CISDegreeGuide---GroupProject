@@ -316,7 +316,7 @@ void MainWindow::on_TRACK_PATH_clicked()
         qDebug() << "Path Table Not Dropped";
     }
 
-    inc++;
+
 /*
     if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
     {
