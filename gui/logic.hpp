@@ -7,7 +7,7 @@
 
 QVector<QString> required(QString trackReq);
 
-QVector<QString> nextTerm(QString term);
+QVector<QString> nextTerm(QString term, QString table);
 
 QVector<QVector<QString> > path(QString track, QString nextTerm);
 
