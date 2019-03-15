@@ -139,14 +139,14 @@ void MainWindow::on_ENTER_CLASS_clicked()
 
 void MainWindow::on_NEXT_TERM_clicked()
 {
-    ui->COURSE_OUTPUT->clear();
-    ui->COURSE_OUTPUT->addItem("Possible Courses For Next Term:");
+    ui->COURSE_OUTPUT->clear(); //reset output each use
+    ui->COURSE_OUTPUT->addItem("Possible Courses For Next Term:"); //title
 
-    QString term = ui->TERM->currentText();
+    QString term = ui->TERM->currentText(); //get term from users choice
     QVector<QString> classesNextTerm = nextTerm(term, "not_taken");
     int capacity = classesNextTerm.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
-	  for(auto it = classesNextTerm.begin(); it!=classesNextTerm.end(); it++) {
+	  for(auto it = classesNextTerm.begin(); it!=classesNextTerm.end(); it++) { //adds courses to display as output
 		    ui->COURSE_OUTPUT->addItem(*it);
 	}
 }
@@ -454,7 +454,7 @@ void MainWindow::on_DELETE_COURSE_clicked()
         delete it;
     }*/
 
-	
+
     ui->F_1->clear();
     ui->F_2->clear();
     ui->F_3->clear();
