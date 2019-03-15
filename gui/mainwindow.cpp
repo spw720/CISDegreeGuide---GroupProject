@@ -248,7 +248,7 @@ void MainWindow::on_TRACK_PATH_clicked()
     QVector<QVector<QString>> p = path(track, term);
     int capacity = p.capacity();
     //cout << "Capacity: " << courseList->getAll().capacity() << endl;
-    int inc;
+    int inc=0;
     for(auto it = p.begin(); it!=p.end(); it++) {
         /*
         for(auto t = (*it).begin(); t!= (*it).end(); t++) {
@@ -303,6 +303,7 @@ void MainWindow::on_TRACK_PATH_clicked()
                 }
                 break;
         }
+        inc++;
     }
 
     // keep this at the end of logic to delete the path_table from the database
