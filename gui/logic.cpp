@@ -106,7 +106,7 @@ QVector<QString> nextTerm(QString term,QString table) { //, vector<string> taken
                   if (query.value(0).toString() != prev)  {
                       //qDebug() << query.value(0);
                       QString s = query.value(0).toString();
-                      if(couldTake.size() <= 5) {
+                      if(couldTake.size() <= 4 && s !="WR 321") {
                           couldTake.push_back(s);
                           prev = query.value(0).toString();
                     }
@@ -141,11 +141,15 @@ QVector<QVector<QString> > path(QString track, QString nTerm) {
         courses = nextTerm(nTerm,"path_table");
 
         for(auto it = courses.begin(); it!=courses.end(); it++) {
-            qDebug() << *it;
-        }
-
-        for(auto it = courses.begin(); it!=courses.end(); it++) {
   		    //ui->COURSE_OUTPUT->addItem(*it);
+            
+            if(nTerm == "Winter") {
+                it++;
+            }
+            else if(nTerm == "Spring") {
+                it++;
+            }
+
             (*term).push_back(*it);
 
             QSqlQuery rmv;
