@@ -103,12 +103,13 @@ QVector<QString> nextTerm(QString term,QString table) { //, vector<string> taken
           if(check.exec()) {
               QString prev = "";
               while(check.next()) {
-                  if (query.value(0).toString() != prev)
-                   {
-                    qDebug() << query.value(0);
-                    QString s = query.value(0).toString();
-                    couldTake.push_back(s);
-                    prev = query.value(0).toString();
+                  if (query.value(0).toString() != prev)  {
+                      //qDebug() << query.value(0);
+                      QString s = query.value(0).toString();
+                      if(couldTake.size() <= 4) {
+                          couldTake.push_back(s);
+                          prev = query.value(0).toString();
+                    }
                   }
               }
             }
