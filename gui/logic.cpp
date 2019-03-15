@@ -8,6 +8,7 @@
 QVector<QString> required(QString trackReq) {
     QSqlQuery qry;
 
+    //Courses that are required by cs core or track
     if(trackReq == "Computational Science") {
         qry.prepare("SELECT sname, lname FROM not_taken WHERE cs_track_req = 1 OR core = 1");
     }
@@ -30,13 +31,14 @@ QVector<QString> required(QString trackReq) {
     QVector<QString> req;
 
     if(qry.exec()) {
+        //Fill Vector with short names of courses
         while(qry.next()) {
             QString s = qry.value(0).toString() + " " + qry.value(1).toString();
             req.push_back(s);
         }
     }
     else {
-        //ui->COURSE_OUTPUT->addItem("Invalid Read");
+        //Should only happen if .db path is wrong
         req.push_back("Invalid Read");
     }
     return req;
@@ -83,6 +85,7 @@ QVector<QString> nextTerm(QString term,QString table) { //, vector<string> taken
       }
   }
   else {
+      //Uses path_table, for paths()
       if (term == "Fall") {
         query.prepare("SELECT sname,prereq1,prereq2 FROM path_table WHERE fall = 1");
       }
@@ -123,27 +126,25 @@ QVector<QString> nextTerm(QString term,QString table) { //, vector<string> taken
   return couldTake;
 }
 
-//QVector<QVector<QString>> path(QString term)
+
 QVector<QVector<QString> > path(QString track, QString nTerm) {
     QVector<QString> courses;
-    // path<term<classes>
     QVector<QVector<QString>> p(9);
     for(int term = 0; term < 9; term++) {  //9 terms, could change later
-        //QVector<QString> t;
-        //p.push_back(t);
         p[term].resize(7);
     }
 
     for(auto term = p.begin(); term!=p.end(); term++) {
-        //(*term).push_back("Hey");
-        qDebug() << nTerm;
         courses.clear();
+
+        //Use nextTerm() logic, updating terms as we go
         courses = nextTerm(nTerm,"path_table");
 
         for(auto it = courses.begin(); it!=courses.end(); it++) {
-  		    //ui->COURSE_OUTPUT->addItem(*it);
+            //Push course onto term
             (*term).push_back(*it);
 
+            //Delete courses that are used from table so queries lookup a shrinking table over time
             QSqlQuery rmv;
             rmv.prepare("DELETE FROM path_table WHERE sname = :sn");
             rmv.bindValue(":sn",*it);
@@ -155,6 +156,7 @@ QVector<QVector<QString> > path(QString track, QString nTerm) {
             }
   	    }
 
+        //Increment which term is being populated
         if (nTerm == "Fall") {
             nTerm = "Winter";
         }
