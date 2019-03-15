@@ -230,7 +230,7 @@ void MainWindow::on_TRACK_PATH_clicked()
 
 	
 	
-    if(ui->TRACK->currentTest() != "~CHOOSE TRACK~")
+    if(ui->TRACK->currentText() != "~CHOOSE TRACK~")
     {
 
     QSqlQuery ptab;
