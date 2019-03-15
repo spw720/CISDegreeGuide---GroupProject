@@ -153,69 +153,22 @@ void MainWindow::on_NEXT_TERM_clicked()
 
 void MainWindow::on_REMAINING_clicked()
 {
-    /*
-    QString trackReq = ui->TRACK->currentText();
-    QSqlQuery qry;
-
-    if (trackReq == "Computational Science") {
-        qry.prepare("select * from courses where cs_track_req = 1 or core = 1");
-    }
-    else if (trackReq == "Computer Networks") {
-        qry.prepare("select sname from courses where cn_track_req = 1");
-    }
-    else if (trackReq == "Computer Security") {
-        qry.prepare("select sname from courses where csec_track_req = 1");
-    }
-    else if (trackReq == "Computer Networks") {
-        qry.prepare("select sname from courses where cn_track_req = 1");
-    }
-    else if (trackReq == "Database and Informatics") {
-        qry.prepare("select sname from courses where cn_track_req = 1");
-    }
-    else {
-        qry.prepare("select sname from courses where sdev_track_req = 1");
-    }
-
-    //qDebug() << trackReq;
-    QVector<QString> req;
-
-    if(qry.exec()) {
-        qDebug() << "executing query ...";
-        while(qry.next()) {
-
-            qDebug() << qry.value(0);
-            //ui->COURSE_OUTPUT->addItem(qry.value(0));
-            //ui->COURSE_OUTPUT->addItem(qry.value(0));
-            //req.push_back(qry.value(1).toString());
-            //ui->COURSE_OUTPUT->addItem("WTF");
-        }
-    }
-    else {
-        ui->COURSE_OUTPUT->addItem("NAH");
-    }*/
-    /*
-    for(auto it = req.begin(); it!=req.end(); it++) {
-        //QString str = QString::fromStdString(*it);
-        ui->COURSE_OUTPUT->addItem(*it);
-        ui->COURSE_OUTPUT->addItem("WTF");
-    }*/
 
     ui->COURSE_OUTPUT->clear();
     ui->COURSE_OUTPUT->addItem("Remaining Required Courses:");
 
     QString trackReq = ui->TRACK->currentText();
     QVector<QString> req = required(trackReq);
-    int capacity = req.capacity();
-    //cout << "Capacity: " << courseList->getAll().capacity() << endl;
-	  for(auto it = req.begin(); it!=req.end(); it++) {
-		    ui->COURSE_OUTPUT->addItem(*it);
+    int capacity = req.capacity();  //Could remove
+    //Iterate through vector and print to GUI
+    for(auto it = req.begin(); it!=req.end(); it++) {
+        ui->COURSE_OUTPUT->addItem(*it);
     }
-
 }
 
 void MainWindow::on_TRACK_PATH_clicked()
 {
-
+    //Clear windows
     ui->F_1->clear();
     ui->F_2->clear();
     ui->F_3->clear();
@@ -226,97 +179,90 @@ void MainWindow::on_TRACK_PATH_clicked()
     ui->S_2->clear();
     ui->S_3->clear();
 
-
-
-    if(ui->TRACK->currentText() != "~CHOOSE TRACK~")
-    {
-
-    QSqlQuery ptab;
-    ptab.prepare("create table path_table as select * from not_taken");
-    if (ptab.exec()) {
-        qDebug() << "Path Table made";
-    }
-    else {
-        qDebug() << "Path Table not made";
-    }
-
-
-
-    //path();
-
-    QString track = ui->TRACK->currentText();
-    QString term = ui->TERM->currentText();
-
-    QVector<QVector<QString>> p = path(track, term);
-    int capacity = p.capacity();
-    //cout << "Capacity: " << courseList->getAll().capacity() << endl;
-    int inc=0;
-    for(auto it = p.begin(); it!=p.end(); it++) {
-        /*
-        for(auto t = (*it).begin(); t!= (*it).end(); t++) {
-            ui->COURSE_OUTPUT->addItem(*t);
-        }*/
-
-
-        switch(inc) {
-            case 0:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->F_1->addItem(*t);
-                }
-                break;
-            case 1:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->W_1->addItem(*t);
-		}
-                break;
-           case 2:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->S_1->addItem(*t);
-		}
-                break;
-            case 3:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->F_2->addItem(*t);
-		}
-                break;
-            case 4:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->W_2->addItem(*t);
-		}
-                break;
-            case 5:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->S_2->addItem(*t);
-		}
-                break;
-           case 6:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->F_3->addItem(*t);
-		}
-                break;
-            case 7:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->W_3->addItem(*t);
-		}
-                break;
-            case 8:
-                for(auto t = (*it).begin(); t!=(*it).end(); t++) {
-                    if(*t != "") ui->S_3->addItem(*t);
-		}
-                break;
+    if(ui->TRACK->currentText() != "~CHOOSE TRACK~") {
+        QSqlQuery ptab;
+        ptab.prepare("create table path_table as select * from not_taken");
+        if (ptab.exec()) {
+            qDebug() << "Path Table made";
         }
-        inc++;
-    }
+        else {
+            qDebug() << "Path Table not made";
+        }
 
-    // keep this at the end of logic to delete the path_table from the database
-    QSqlQuery del;
-    del.prepare("drop table path_table");
-    if (del.exec()) {
-        qDebug() << "Path Table Dropped";
-    }
-    else {
-        qDebug() << "Path Table Not Dropped";
-    }
+        //Get track and Term
+        QString track = ui->TRACK->currentText();
+        QString term = ui->TERM->currentText();
+
+        QVector<QVector<QString>> p = path(track, term);
+        int capacity = p.capacity();    //Could remove later
+
+        //counter
+        int inc=0;
+
+        //for term in path
+        for(auto it = p.begin(); it!=p.end(); it++) {
+
+            //Print to GUI, term by term
+            switch(inc) {
+                case 0:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        //if the course isn't blank
+                        if(*t != "") ui->F_1->addItem(*t);
+                    }
+                    break;
+                case 1:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->W_1->addItem(*t);
+    		        }
+                    break;
+               case 2:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->S_1->addItem(*t);
+    		        }
+                    break;
+                case 3:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->F_2->addItem(*t);
+    		        }
+                    break;
+                case 4:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->W_2->addItem(*t);
+    		        }
+                    break;
+                case 5:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->S_2->addItem(*t);
+    		        }
+                    break;
+               case 6:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->F_3->addItem(*t);
+    		        }
+                    break;
+                case 7:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->W_3->addItem(*t);
+    		        }
+                    break;
+                case 8:
+                    for(auto t = (*it).begin(); t!=(*it).end(); t++) {
+                        if(*t != "") ui->S_3->addItem(*t);
+    		        }
+                    break;
+            }
+            inc++;
+        }
+
+        //delete the path_table from the database
+        QSqlQuery del;
+        del.prepare("drop table path_table");
+        if (del.exec()) {
+            qDebug() << "Path Table Dropped";
+        }
+        else {
+            qDebug() << "Path Table Not Dropped";
+        }
     }//end of (if track != ~CHOOSE TRACK~)
     else{
 	ui->F_1->clear();
@@ -340,75 +286,6 @@ void MainWindow::on_TRACK_PATH_clicked()
         ui->S_3->clear();
         ui->S_3->addItem("CHOOSE A TRACK");
     }
-
-/*
-    if (ui->TRACK->currentText() == "~CHOOSE TRACK~")
-    {
-        ui->F_1->clear();
-        ui->F_1->addItem("CHOOSE A TRACK");
-        ui->F_2->clear();
-        ui->F_2->addItem("CHOOSE A TRACK");
-        ui->F_3->clear();
-        ui->F_3->addItem("CHOOSE A TRACK");
-
-        ui->W_1->clear();
-        ui->W_1->addItem("CHOOSE A TRACK");
-        ui->W_2->clear();
-        ui->W_2->addItem("CHOOSE A TRACK");
-        ui->W_3->clear();
-        ui->W_3->addItem("CHOOSE A TRACK");
-
-        ui->S_1->clear();
-        ui->S_1->addItem("CHOOSE A TRACK");
-        ui->S_2->clear();
-        ui->S_2->addItem("CHOOSE A TRACK");
-        ui->S_3->clear();
-        ui->S_3->addItem("CHOOSE A TRACK");
-    }
-    if (ui->TRACK->currentText() == "Foundations")
-    {
-        ui->F_1->clear();
-        ui->F_1->addItems({"CIS 210", "MTH 231", "SCI 1" });
-        ui->F_2->clear();
-        ui->F_2->addItems({"CIS 313", "CIS 314", "MTH 252"});
-        ui->F_3->clear();
-        ui->F_3->addItems({"CIS 425", "CIS+", "WR 320"});
-
-        ui->W_1->clear();
-        ui->W_1->addItems({"CIS 211", "MTH 232", "SCI 2"});
-        ui->W_2->clear();
-        ui->W_2->addItems({"CIS 330", "MTH 315", "MTH+"});
-        ui->W_3->clear();
-        ui->W_3->addItems({"CIS 422", "CIS+", "MTH+"});
-
-        ui->S_1->clear();
-        ui->S_1->addItems({"CIS 212", "MTH 251", "SCI 3"});
-        ui->S_2->clear();
-        ui->S_2->addItems({"CIS 415", "CIS+", "MTH+"});
-        ui->S_3->clear();
-        ui->S_3->addItems({"CIS+", "CIS+", "CIS+"});
-    }
-    if (ui->TRACK->currentText() == "Computational Science")
-    {
-
-    }
-    if (ui->TRACK->currentText() == "Computer Networks")
-    {
-
-    }
-    if (ui->TRACK->currentText() == "Computer Security")
-    {
-
-    }
-    if (ui->TRACK->currentText() == "Database and Informatics")
-    {
-
-    }
-    if (ui->TRACK->currentText() == "Software Development")
-    {
-
-    }
-    */
 }
 
 void MainWindow::on_SUBJECT_currentIndexChanged(const QString &arg1)
