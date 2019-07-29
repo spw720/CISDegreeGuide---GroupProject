@@ -1,12 +1,12 @@
-## CSLifeGuide: An Interactive Degree Guide for U of O CS Students
+# CSLifeGuide: An Interactive Degree Guide for U of O CS Students
 
 
-# Team:
+## Team:
 
 	Sean Wilson, Noah Tigner, Claire Kolln, Joe Webb
 
 
-# To compile/run on ix-dev:
+## To compile/run on ix-dev:
 
 	(Using Xquartz)
 
@@ -21,7 +21,7 @@
 	./CSLG
 
 
-# To use application:
+## To use application:
 
 	Use drop downs and the 'Enter Class' button to fill the Course List with all completed course information
 
